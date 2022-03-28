@@ -1,4 +1,4 @@
-package com.project1.hotelbookingsystem.controller;
+package hotelBookingApp.controllers;
 
 
 
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project1.hotelbookingsystem.model.User;
-import com.project1.hotelbookingsystem.repository.UserRepository;
+import hotelBookingApp.models.User;
+import hotelBookingApp.repositories.UserRepository;
 
 
 @Controller

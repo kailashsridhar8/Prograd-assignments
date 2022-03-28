@@ -1,11 +1,11 @@
-package com.project1.hotelbookingsystem.repository;
+package hotelBookingApp.repositories;
 
 
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.project1.hotelbookingsystem.model.User;
+import hotelBookingApp.models.User;
 
 
 @Repository
