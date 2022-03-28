@@ -1,4 +1,4 @@
-package com.project1.hotelbookingsystem.crudrepo;
+package com.project1.hotelbookingsystem.repository;
 
 
 
