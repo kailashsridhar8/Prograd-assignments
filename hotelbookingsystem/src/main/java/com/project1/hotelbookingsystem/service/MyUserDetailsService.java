@@ -1,20 +1,62 @@
 package com.project1.hotelbookingsystem.service;
 
 import java.util.ArrayList;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.project1.hotelbookingsystem.model.DAOUser;
+import com.project1.hotelbookingsystem.model.UserDTO;
+import com.project1.hotelbookingsystem.repository.UserDao;
+
+//@Service
+//public class MyUserDetailsService implements UserDetailsService {
+//	@Override
+//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//		
+//		//return new User("foo", "foo", (Collection<? extends GrantedAuthority>) new ArrayList<Object>());
+////		return new User("abc", "abc", (Collection<? extends GrantedAuthority>) new ArrayList<Object>());
+//		 return new User("abc", "foo",new ArrayList<>());
+//	}
+//
+//}
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
+
+	@Autowired
+	private UserDao userDao;
+
+	@Autowired
+	private PasswordEncoder bcryptEncoder;
+	
 	@Override
+	
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		//return new User("foo", "foo", (Collection<? extends GrantedAuthority>) new ArrayList<Object>());
-//		return new User("abc", "abc", (Collection<? extends GrantedAuthority>) new ArrayList<Object>());
-		 return new User("abc", "foo",new ArrayList<>());
+		DAOUser user =  userDao.findByUsername(username);
+		if (user == null) {
+			System.out.println("");
+			throw new UsernameNotFoundException("User not found with username: " + username);
+		}
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+				new ArrayList<>());
 	}
 
+	
+	public DAOUser save(UserDTO user) {
+		DAOUser newUser = new DAOUser();
+		newUser.setUsername(user.getUsername());
+		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+		 return userDao.save(newUser);
+	}
+	
+	
 }

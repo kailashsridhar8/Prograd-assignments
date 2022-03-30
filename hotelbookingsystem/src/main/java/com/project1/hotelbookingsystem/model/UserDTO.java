@@ -1,22 +1,8 @@
 package com.project1.hotelbookingsystem.model;
 
-import java.io.Serializable;
-
-public class AuthenticationRequest implements Serializable{
-	
-	private static final long serialVersionUID = 5926468583005150707L;
-	
+public class UserDTO {
 	private String username;
 	private String password;
-
-	public AuthenticationRequest() {
-		
-	}
-
-	public AuthenticationRequest(String username, String password) {
-		  this.setUsername(username);
-	        this.setPassword(password);
-	}
 
 	public String getUsername() {
 		return username;
@@ -33,5 +19,4 @@ public class AuthenticationRequest implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 }
