@@ -1,17 +1,18 @@
 package com.project1.hotelbookingsystem.model;
 
-public class AuthenticationRequest {
+import java.io.Serializable;
+
+public class AuthenticationRequest implements Serializable{
 	private String username;
 	private String password;
 
 	public AuthenticationRequest() {
-		super();
+		
 	}
 
 	public AuthenticationRequest(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
+		  this.setUsername(username);
+	        this.setPassword(password);
 	}
 
 	public String getUsername() {
@@ -26,7 +27,7 @@ public class AuthenticationRequest {
 		return password;
 	}
 
-	public void setPasseord(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 

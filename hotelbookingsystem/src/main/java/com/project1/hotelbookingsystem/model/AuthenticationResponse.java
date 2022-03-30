@@ -1,6 +1,8 @@
 package com.project1.hotelbookingsystem.model;
 
-public class AuthenticationResponse {
+import java.io.Serializable;
+
+public class AuthenticationResponse implements Serializable {
 	private final String jwt;
 
 	public AuthenticationResponse(String jwt) {

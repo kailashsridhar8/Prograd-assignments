@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +26,7 @@ import com.project1.hotelbookingsystem.util.JwtUtil;
 //import com.project1.hotelbookingsystem.model.User;
 //import com.project1.hotelbookingsystem.repository.UserRepository;
 
-@RestController
+@Controller
 public class AppController {
 
 	// @Autowired
@@ -39,10 +41,11 @@ public class AppController {
 	@Autowired
 	private JwtUtil jwtTokenUtil;
 
-	@GetMapping("/register")
+	@RequestMapping({"/abc"})
 	public String home() {
-		return "register.jsp";
+		return "home.jsp";
 	}
+
 
 	// @RequestMapping("/signUser")
 	// public ModelAndView signin(User reqParamObjectUser) {
@@ -72,7 +75,7 @@ public class AppController {
 	//
 	// }
 
-	@PostMapping(value = "/authenticate")
+	@RequestMapping(value = "/authenticate",method=RequestMethod.POST)
 	// ResponseEntity is HTTP
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
 			throws Exception {
@@ -87,6 +90,7 @@ public class AppController {
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 		
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
+		
 		
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
