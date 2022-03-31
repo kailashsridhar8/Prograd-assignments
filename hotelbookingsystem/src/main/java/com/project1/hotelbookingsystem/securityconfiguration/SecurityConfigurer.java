@@ -22,16 +22,16 @@ import com.project1.hotelbookingsystem.service.MyUserDetailsService;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-	
+
 	@Autowired
 	private MyUserDetailsService myUserDetailsService;
 
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
-	
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		// configure AuthenticationManager so that it knows from where to load
@@ -39,13 +39,12 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		// Use BCryptPasswordEncoder
 		auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordencoder());
 	}
-	
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(myUserDetailsService);
 	}
-	
-	
+
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -53,45 +52,32 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		return super.authenticationManagerBean();
 	}
 
-
-//	@Bean
-//	public PasswordEncoder passwordEncoder() {
-//		return NoOpPasswordEncoder.getInstance();
-//	}
-//	@Bean
-//	public PasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
 	@Bean(name = "passwordEncoder")
 	public static PasswordEncoder passwordencoder() {
-	    return new BCryptPasswordEncoder();
+		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll().
-//		anyRequest().authenticated()
-//		.and().sessionManagement()
-//		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+		// http.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll().
+		// anyRequest().authenticated()
+		// .and().sessionManagement()
+		// .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		// http.addFilterBefore(jwtRequestFilter,
+		// UsernamePasswordAuthenticationFilter.class);
 		http.csrf().disable()
-		// dont authenticate this particular request
-		.authorizeRequests().antMatchers("/authenticate", "/register").permitAll().
-		// all other requests need to be authenticated
-		anyRequest().authenticated().and().
-		// make sure we use stateless session; session won't be used to
-		// store user's state.
-		exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				// dont authenticate this particular request
+				.authorizeRequests().antMatchers("/authenticate", "/register").permitAll().
+				// all other requests need to be authenticated
+				anyRequest().authenticated().and().
+				// make sure we use stateless session; session won't be used to
+				// store user's state.
+				exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-// Add a filter to validate the tokens with every request
+		// Add a filter to validate the tokens with every request
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-		
+
 	}
-
-
-	
-	
-	
 
 }

@@ -16,18 +16,6 @@ import com.project1.hotelbookingsystem.model.DAOUser;
 import com.project1.hotelbookingsystem.model.UserDTO;
 import com.project1.hotelbookingsystem.repository.UserDao;
 
-//@Service
-//public class MyUserDetailsService implements UserDetailsService {
-//	@Override
-//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//		
-//		//return new User("foo", "foo", (Collection<? extends GrantedAuthority>) new ArrayList<Object>());
-////		return new User("abc", "abc", (Collection<? extends GrantedAuthority>) new ArrayList<Object>());
-//		 return new User("abc", "foo",new ArrayList<>());
-//	}
-//
-//}
-
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
@@ -36,12 +24,12 @@ public class MyUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
-	
+
 	@Override
-	
+
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
-		DAOUser user =  userDao.findByUsername(username);
+
+		DAOUser user = userDao.findByUsername(username);// jpa
 		if (user == null) {
 			System.out.println("");
 			throw new UsernameNotFoundException("User not found with username: " + username);
@@ -50,13 +38,12 @@ public class MyUserDetailsService implements UserDetailsService {
 				new ArrayList<>());
 	}
 
-	
 	public DAOUser save(UserDTO user) {
 		DAOUser newUser = new DAOUser();
 		newUser.setUsername(user.getUsername());
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		 return userDao.save(newUser);
+		newUser.setEmail(user.getEmail());
+		return userDao.save(newUser);
 	}
-	
-	
+
 }

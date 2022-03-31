@@ -9,8 +9,8 @@ public class AuthenticationResponse implements Serializable {
 	public AuthenticationResponse(String jwt) {
 		this.jwt = jwt;
 	}
-	
-	public String getJwt(){
+
+	public String getJwt() {
 		return jwt;
 	}
 }
