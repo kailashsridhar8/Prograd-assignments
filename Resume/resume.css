@@ -1,0 +1,58 @@
+body{
+    background-color: honeydew;
+}
+img {
+    float: right;
+    margin-top: 25px;
+  }
+  h1,h2{
+        color: #893108;
+  }
+.user{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border:1px solid black;
+    background-color: darkgray(213, 212, 206);
+    margin-left: 3%;
+    margin-right:3%;
+    padding: 10px;
+} 
+.education{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 3%;
+    margin-right:3%;
+} 
+
+.certification{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 3%;
+    margin-right:3%;
+}
+.project{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 3%;
+    margin-right:3%;
+}
+.achievement{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 3%;
+    margin-right:3%;
+}
+.interest{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 3%;
+    margin-right:3%;
+}
+table, td, th {  
+    border: 1px solid rgb(0, 0, 0);
+    text-align: left;
+    font-size: 17px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
+  }
