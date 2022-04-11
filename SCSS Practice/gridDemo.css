@@ -1,0 +1,30 @@
+.grid-container{
+    display: grid;
+    grid: 'a a a'
+    'b c d'
+    'e e e';
+    grid-gap: 10px;
+    background-color:rgb(0, 0, 0);
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 30px;
+    
+}
+.item1 { grid-area: a;
+background-color:orange;
+border: 1px solid black;
+}
+.item2 { grid-area: b; 
+    background-color:yellow;
+    border: 1px solid black;}
+.item3 { grid-area: c; 
+    background-color:yellow;    
+    border: 1px solid black;}
+.item4 { grid-area: d; 
+    background-color:yellow;
+    border: 1px solid black;}
+.item5 { grid-area: e; 
+    background-color: green;
+    border: 1px solid black;}
+

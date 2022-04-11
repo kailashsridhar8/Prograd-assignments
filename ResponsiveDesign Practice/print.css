@@ -1,0 +1,52 @@
+*{
+    font-size:2em;
+}
+
+body {
+    background-color: pink;
+ font-size:0.5rem; 
+
+  }
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  .topnav a {
+    float: left;
+    border: 1px solid black;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+@media print {
+    .to-print {
+       color: green;
+    }
+}
+
+@media screen {
+    .to-print {
+        color: red;
+    }
+}
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+@media screen and (max-width: 600px) {
+  .topnav a {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}

@@ -1,0 +1,20 @@
+@mixin important-text {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+  }
+  
+  .danger {
+    @include important-text;
+    background-color: green;
+  }
+  @mixin bordered($color, $width) {
+    border: $width solid $color;
+  }
+  .myArticle {
+    @include bordered(blue, 1px);  
+  }
+  .myNotes {
+    @include bordered(red, 2px); 
+  }

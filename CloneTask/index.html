@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://use.fontawesome.com/279df242c8.js"></script>
+    <link rel="stylesheet" href="./main.css" />
+
+    <title>Superprof</title>
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-expand-sm navbar-light justify-content-between">
+        <a class="navbar-brand text-danger font-weight-bold" href="#"
+          >superprof</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Give Private Classes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Sign up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Log In</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <section id="main">
+        <div class="row align-items-start justify-content-center">
+          <div class="col-12 col-md-6 px-5 mt-5">
+            <div class="main-text ml-4 mt-5">
+              <h2 class="font-weight-bold main-title headings">
+                Find the <br />
+                perfect teacher
+              </h2>
+              <p class="main-desc d-none d-md-block mt-2">
+                Online or face-to-face, <br />
+                Choose from
+                <span class="text-danger"> 18 million teachers</span>
+              </p>
+            </div>
+            <div class="search">
+              <div
+                class="box d-flex justify-content-between align-items-center mx-auto px-2"
+              >
+                <p class="mb-0">
+                  <i class="fa fa-thin fa-clone text-danger px-2"></i> What do
+                  you want to learn?
+                </p>
+                <button class="btn d-none d-md-block">Find a danger</button>
+                <button class="btn d-block d-md-none">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pic col-12 col-md-6 col-lg-6 align-self-start my-5 my-md-0"
+            style="overflow-x: hidden"
+          >
+            <ul class="pictures d-flex justify-content-between">
+              <li class="picture picture-1">
+                <div class="div">
+                  <div class="circle"></div>
+                  <h6 class="font-weight-bold mb-0">Avinash</h6>
+                  <p class="mb-0">Maths Teacher</p>
+                  <span style="font-size: 10px" class="font-weight-bold">
+                    <i class="fa fa-thin fa-star text-warning"></i>
+                    5.0 (63)
+                  </span>
+                </div>
+              </li>
+              <li class="picture picture-2">
+                <div class="div">
+                  <div class="circle"></div>
+                  <h6 class="font-weight-bold mb-0">Manisha</h6>
+                  <p class="mb-0">Yoga Teacher</p>
+                  <span style="font-size: 10px" class="font-weight-bold">
+                    <i class="fa fa-thin fa-star text-warning"></i>
+                    5.0 (63)
+                  </span>
+                </div>
+              </li>
+              <li class="picture picture-3">
+                <div class="div">
+                  <h6 class="font-weight-bold mb-0">Karuna</h6>
+                  <p class="mb-0">Hindi Teacher</p>
+                  <span style="font-size: 10px" class="font-weight-bold">
+                    <i class="fa fa-thin fa-star text-warning"></i>
+                    5.0 (63)
+                  </span>
+                  <div class="circle"></div>
+                </div>
+              </li>
+              <li class="picture picture-4 d-none d-md-block">
+                <div class="div">
+                  <div class="circle"></div>
+                  <h6 class="font-weight-bold mb-0">Payal</h6>
+                  <p class="mb-0">Singing Teacher</p>
+                  <span style="font-size: 10px" class="font-weight-bold">
+                    <i class="fa fa-thin fa-star text-warning"></i>
+                    5.0 (63)
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="second">
+        <div class="row align-items-center py-5">
+          <div class="col-12 col-md-5 col-lg-5 d-flex justify-content-center">
+            <div>
+              <h2 class="font-weight-bold">
+                Certified and highly-rated <br />
+                teachers
+              </h2>
+              <p>
+                <span class="text-danger">Over one million students</span> gave
+                a review of <br />
+                <span class="text-danger">5 stars</span> to their teacher
+              </p>
+              <button class="btn">Find your teacher</button>
+            </div>
+          </div>
+          <div class="col-12 col-md-7 col-lg-7 d-flex justify-content-start">
+            <div class="row d-none d-md-block">
+              <div class="row">
+                <div class="col-5">
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-3 circle-img img-1"></div>
+                      <div class="col-8">
+                        <h6>Deepika</h6>
+                        <h6>Architecture Teacher</h6>
+                        <ul class="d-flex stars">
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col offset-1 col-5">
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-3 circle-img img-2"></div>
+                      <div class="col-8">
+                        <h6>Bhavana</h6>
+                        <h6>Yoga Teacher</h6>
+                        <ul class="d-flex stars">
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-6">
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-3 circle-img img-3"></div>
+                      <div class="col-8">
+                        <h6>Mohit</h6>
+                        <h6>Computer programming teacher</h6>
+                        <ul class="d-flex stars">
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 mt-3">
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-3 circle-img img-4"></div>
+                      <div class="col-8">
+                        <h6>Raman</h6>
+                        <h6>Hindi Teacher</h6>
+                        <ul class="d-flex stars">
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                          <li>
+                            <i class="fa fa-thin fa-star text-warning"></i>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="three" class="py-5 mt-5">
+        <h2 class="ml-md-5 font-weight-bold heding" style="font-size: 40px">
+          Learning has <br />
+          never been this easy
+        </h2>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-12 col-md-6 d-flex justify-content-end pr-5">
+            <div class="content pr-5">
+              <h3>1.Search</h3>
+              <p>
+                View the profiles freely and connect with your fantastic teacher
+                according to your criteria (prices, diploma, reviews, classes at
+                home or online)
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="video">
+              <video autoplay muted loop src="./assets/1.mov"></video>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-12 col-md-6 d-flex order-md-2 pr-5">
+            <div class="content pl-3">
+              <h3>2.Contact</h3>
+              <p>
+                Teachers will get back to you within hours! And if you can't
+                find the perfect teacher, our team is here to help.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 d-flex justify-content-end ml-5 ml-md-0">
+            <div class="video">
+              <video autoplay muted loop src="./assets/2.mov"></video>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-12 col-md-6 d-flex justify-content-end pr-5">
+            <div class="content pr-5">
+              <h3>3.Organize</h3>
+              <p>
+                Freely schedule your classes with your teacher from the
+                messaging platform.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="video">
+              <video autoplay muted loop src="./assets/3.mov"></video>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="four" class="py-5">
+        <div class="row py-4">
+          <div class="col-12 col-md-6 col-lg-6 d-flex justify-content-end">
+            <div class="meet"></div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 order-sm-1">
+            <h2 class="my-4 headings">
+              Student and teacher <br />
+              working in harmony
+            </h2>
+            <p class="d-none d-md-block">
+              "Superprof has helped me perfect my skills, invest in my future,
+              and
+              <br />
+              build confidence in myself."
+            </p>
+            <h5 class="font-weight-bold d-none d-md-block">Nina</h5>
+            <h6 class="font-weight-bold d-none d-md-block">
+              1st-year College student
+            </h6>
+          </div>
+        </div>
+      </section>
+
+      <section id="five" class="p-0 pt-4 d-none d-md-block">
+        <h2 class="headings my-4 py-5 ml-5 pl-5">1001 subjects to explore</h2>
+        <ul class="items1 d-flex justify-content-around">
+          <li class="item"><span>Accounting</span></li>
+          <li class="item"><span>Electric Guitar</span></li>
+          <li class="item"><span>Microsoft excel</span></li>
+          <li class="item"><span>German</span></li>
+          <li class="item"><span>Maths</span></li>
+          <li class="item"><span>Finance</span></li>
+        </ul>
+
+        <ul class="items2 d-flex justify-content-around">
+          <li class="item"><span>Boxing</span></li>
+          <li class="item"><span>Physics</span></li>
+          <li class="item"><span>Chemical physics</span></li>
+          <li class="item"><span>IELTS</span></li>
+          <li class="item"><span>Cooking</span></li>
+          <li class="item"><span>Psychology</span></li>
+        </ul>
+      </section>
+
+      <section id="six">
+        <div class="row-six mx-auto">
+          <div class="content-six">
+            <h1>
+              You can become <br />
+              a great tutor too!
+            </h1>
+            <p class="mt-3">
+              Share your knowledge, live off your passion and be your own boss
+            </p>
+            <button class="btn mt-2">Find out more</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="seven">
+        <h1>
+          Learn,<br />
+          Explore your city
+        </h1>
+        <div
+          class="location-group d-flex flex-row flex-md-column justify-content-around"
+          style="overflow-x: auto"
+        >
+          <div
+            class="locations ml-5 p-5 w-sm-100 d-flex flex-column flex-md-row justify-content-md-around shadow rounded"
+          >
+            <ul class="location">
+              <li>Mumbai</li>
+              <li>English</li>
+              <li>Guitar</li>
+              <li>Driving</li>
+            </ul>
+            <ul class="location">
+              <li>New Delhi</li>
+              <li>Guitar</li>
+              <li>Yoga</li>
+              <li>French</li>
+            </ul>
+            <ul class="location">
+              <li>Bengaluru</li>
+              <li>Yoga</li>
+              <li>Singing</li>
+              <li>Dance</li>
+            </ul>
+            <ul class="location">
+              <li>Kolkata</li>
+              <li>Guitar</li>
+              <li>Singing</li>
+              <li>Maths</li>
+            </ul>
+            <ul class="location">
+              <li>Chennai</li>
+              <li>Maths</li>
+              <li>Hindi</li>
+              <li>Piano</li>
+            </ul>
+          </div>
+          <div
+            class="locations ml-5 p-5 w-sm-100 d-flex flex-column flex-md-row justify-content-md-around shadow rounded"
+          >
+            <ul class="location">
+              <li>Mumbai</li>
+              <li>English</li>
+              <li>Guitar</li>
+              <li>Driving</li>
+            </ul>
+            <ul class="location">
+              <li>New Delhi</li>
+              <li>Guitar</li>
+              <li>Yoga</li>
+              <li>French</li>
+            </ul>
+            <ul class="location">
+              <li>Bengaluru</li>
+              <li>Yoga</li>
+              <li>Singing</li>
+              <li>Dance</li>
+            </ul>
+            <ul class="location">
+              <li>Kolkata</li>
+              <li>Guitar</li>
+              <li>Singing</li>
+              <li>Maths</li>
+            </ul>
+            <ul class="location">
+              <li>Chennai</li>
+              <li>Maths</li>
+              <li>Hindi</li>
+              <li>Piano</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="py-5 px-5 w-100">
+        <div
+          class="foot-div d-flex flex-column flex-md-row align-items-start justify-content-md-around mb-5 align-items-md-center"
+        >
+          <ul class="foot-items">
+            <li>About</li>
+            <li>Who are we?</li>
+            <li>Our commitment</li>
+            <li>Terms & Condiitions</li>
+            <li>Privacy Policy</li>
+          </ul>
+          <ul class="foot-items">
+            <li></li>
+            <li>Superprof around the world</li>
+            <li>All subjects</li>
+            <li>Online Classes</li>
+            <li>States</li>
+            <li>Superprof recruits</li>
+          </ul>
+          <ul class="foot-items">
+            <li>Join the adventure</li>
+            <li>The superprof of Blog</li>
+          </ul>
+          <ul class="foot-items">
+            <li>Help</li>
+            <li>Need help?</li>
+            <li>Contact</li>
+          </ul>
+          <ul class="foot-items">
+            <li>Follow us</li>
+            <div class="social d-flex justify-content-around">
+              <li><i class="fa fa-social fa-facebook"></i></li>
+              <li><i class="fa fa-social fa-twitter"></i></li>
+              <li><i class="fa fa-social fa-instagram"></i></li>
+            </div>
+          </ul>
+        </div>
+        <div class="line"></div>
+        <p class="mt-2 ml-4">&copy; 2022 Superprof, Explore. Learn</p>
+      </footer>
+      <script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"
+      ></script>
+      
+    </div>
+  </body>
+</html>
