@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML Events</h2>
+<p>Click the button to display the date.</p>
+
+<button onclick="displayDate()">The time is?</button>
+<p id="demo"></p>
+<button onmouseover="displayDateHover()" >Hover here!</button>
+<p id="hover"></p>
+<select id="selectedId" onchange="onChange()">
+<option value="select">Select</option>
+	<option value="Array">Array</option>
+    <option value="Stack">Stack</option>
+    <option value="Queue">Queue</option>
+</select>
+<p id="select"></p>
+<p>Type a letter</p>
+<input type="text" onkeydown="myFunction()">
+<br> <br>
+<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+style="background-color:#129d0a;width:90px;height:20px;padding:40px;">
+Click Me</div>
+<br><br>
+<button id="myBtn">Click Here For Event Listner</button>
+<script>
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+function displayDateHover() {
+  document.getElementById("hover").innerHTML = Date();
+}
+function onChange(){
+var x=document.getElementById("selectedId").value;
+if(x=="select"){
+ document.getElementById("select").innerHTML = "Select from options";
+}
+else{
+ document.getElementById("select").innerHTML = "You Selected "+x;
+}
+
+}
+function myFunction(){
+ alert("You pressed a key inside the input field");
+}
+function mDown(x){
+x.style.backgroundColor = "blue";
+}
+function mUp(x){
+x.style.backgroundColor = "red";
+}
+
+document.getElementById("myBtn").addEventListener("click", ()=>{
+  alert("You pressed Event listner button");
+});
+</script>
+
+
+
+</body>
+</html> 
