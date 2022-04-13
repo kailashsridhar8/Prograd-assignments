@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculator.css">
+    <title>Calculator</title>
+</head>
+<body>
+
+
+            <div class="grid-container">
+      
+
+              <input type='text' id='result' class ='screen' style="text-align: right;; height: 30px;">
+    
+              <input type='button' value = 'DEL' onclick="clearLast()" class="clear"/>
+
+              <input type='button' value = 'AC' onclick="clearScreen()" class="clearAll"/>
+          
+              
+          
+
+              <input type="button" value="7" class="button7" onClick="display('7')"></input>
+
+              <input type="button" value="8" class="button8 " onClick="display('8')"></input>
+          
+              <input type="button" value="9" class="button9" onClick="display('9')"></input>
+ 
+          
+              <input type="button" value="/" class="operator/" onClick="display('/')"></input>
+          
+              <input type="button" value="4" class="button4" onClick="display('4')"></input>
+          
+              <input type="button" value="5" class="button5" onClick="display('5')"></input>
+          
+              <input type="button" value="6" class="button6" onClick="display('6')"></input>
+          
+              <input type="button" value="*" class="operator*" onClick="display('*')"></input>
+          
+              <input type="button" value="1" class="button1" onClick="display('1')"></input>
+          
+              <input type="button" value="2" class="button2" onClick="display('2')"></input>
+          
+              <input type="button" value="3" class="button3" onClick="display('3')"></input>
+          
+              <input type="button" value="-" class="operator-" onClick="display('-')"></input>
+          
+              <input type="button" value="0" class="button0" onClick="display('0')"></input>
+          
+              <input type="button" value="." class="buttonDot" onClick="display('.')"></input>
+          
+              <input type="button" value= "=" class="button equal-sign" onClick="solve()"></input>
+          
+              <input type="button" value="+" class="operator+" onClick="display('+')"></input>
+               
+              </div>
+              <script>
+                 function display(enteredValue){
+                    document.getElementById("result").value += enteredValue;
+                 } 
+                 function clearScreen(){
+                    document.getElementById('result').value = '';
+                 }
+                 function solve(){
+                     var finalEquation = document.getElementById('result').value;
+                    var answer=eval(finalEquation);
+                    document.getElementById('result').value = answer;
+                    return answer;
+                 }
+                 function clearLast(){
+                    let finalEquation = document.getElementById('result').value;
+                    var slicedValue= finalEquation.slice(0, -1);
+                    document.getElementById('result').value = slicedValue;
+                    return finalEquation;
+                 }
+              </script>
+    
+</body>
+</html>

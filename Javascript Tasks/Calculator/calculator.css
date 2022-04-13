@@ -1,0 +1,52 @@
+
+.grid-container {
+    margin-left: 33%;
+    margin-top: 10%;
+    width: 30%;
+    height: 250px;
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    gap: 6px;
+    background-color: #e7dede;
+    padding: 20px;
+    border: 10px solid black;
+    border-radius:20px;
+
+  }
+  .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+ 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  /* .operator-{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+ 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  } */
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 30px;
+  }
+
+  .screen{
+    grid-column: 1/5;
+    font-size: 20px;
+  }
+  .clearAll{
+    grid-column: 3/5;
+  }
+  .clear{
+    grid-column: 1/3;
+  }
