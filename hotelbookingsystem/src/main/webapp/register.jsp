@@ -33,12 +33,12 @@
 		<div class="card-body">
 			<h1 class="card-title">Sign up</h1>
 
-			<form action=signUser>
-				<label>First Name</label> <input type="text" name="firstName"><br>
-				<br> <label>Last Name</label> <input type="text"
-					name="lastName"><br> <br> <label>Email
-					Address</label> <input type="text" name="email"><br> <br>
-				<label>Password</label> <input type="password" name="password"><br>
+			<form action=register>
+		
+				 <label>User Name</label> <input type="text"
+					name="username" required><br> <br> <label>Email
+					Address</label> <input type="text" name="email" required><br> <br>
+				<label>Password</label> <input type="password" name="password" required><br>
 				<br> <input type="submit" class="btn btn-primary"><br>
 				<br> <a href="/login.jsp">Already have an account? Sign in</a>
 			</form>

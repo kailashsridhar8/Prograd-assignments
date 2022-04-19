@@ -36,7 +36,7 @@
 
 			<form action=loginUser>
 
-				<label>Email Address</label> <input type="text" name="email"><br>
+				<label>Username</label> <input type="text" name="username"><br>
 				<br> <label>Password</label> <input type="password"
 					name="password"><br>
 				<br> <input type="submit" class="btn btn-primary"><br>

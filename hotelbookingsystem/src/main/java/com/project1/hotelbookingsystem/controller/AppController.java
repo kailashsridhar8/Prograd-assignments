@@ -40,6 +40,10 @@ public class AppController {
 	public String home() {
 		return "home.jsp";
 	}
+	@RequestMapping({ "/authenticate" })
+	public String login() {
+		return "login.jsp";
+	}
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	// ResponseEntity is HTTP
@@ -63,6 +67,11 @@ public class AppController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
 		return ResponseEntity.ok(userDetailsService.save(user));
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register() {
+		return "register.jsp";
 	}
 
 }

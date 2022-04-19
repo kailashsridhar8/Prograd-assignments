@@ -38,12 +38,24 @@ public class MyUserDetailsService implements UserDetailsService {
 				new ArrayList<>());
 	}
 
-	public DAOUser save(UserDTO user) {
-		DAOUser newUser = new DAOUser();
-		newUser.setUsername(user.getUsername());
-		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		newUser.setEmail(user.getEmail());
-		return userDao.save(newUser);
+	public DAOUser save(UserDTO user) throws Exception {
+
+		
+		
+		 if(this.userDao.existsByUsername(user.getUsername())){
+			 throw new Exception("User with given uusernamealready exist");
+			 
+		 }
+		 else{
+				DAOUser newUser = new DAOUser();
+				newUser.setUsername(user.getUsername());
+			    newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+				newUser.setEmail(user.getEmail());
+				return userDao.save(newUser);
+		 }
+		
+		
+		
 	}
 
 }
