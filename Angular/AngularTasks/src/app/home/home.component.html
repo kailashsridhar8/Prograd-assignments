@@ -1,0 +1,32 @@
+<!-- 
+
+ <ul class="list" *ngFor="let number of numberArray; let evenclass=even; let oddclass=odd" [ngClass]="{oddclass:oddclass, evenclass:evenclass}" >
+<li >{{number}} </li>
+ </ul>
+
+     -->
+<!-- 
+
+     <ul class="list" *ngFor="let number of numberArray" >
+        <li [ngClass]="number%2==0?'even':'odd'" >{{number}} </li>
+     </ul>
+        
+             -->
+             <br>
+
+             <input class="input" type="text" placeholder="Enter your name" [(ngModel)]="enteredValue">
+             <br><br>
+             
+             <p class="input"> Welcome {{enteredValue | uppercase }}</p>
+             <br>
+             
+             <input class="btn btn-primary" type="button" value="logout" (click)="onLogout(ref.value)" #ref>
+             
+             <br><br>
+             
+             <p style="margin-left:20px"> Fahrenheit : <input type="text" [(ngModel)]="Fahrenheit" />
+                Celsius : {{Fahrenheit| tempConverter: 'C'}} </p>
+
+
+                <hr>
+                 

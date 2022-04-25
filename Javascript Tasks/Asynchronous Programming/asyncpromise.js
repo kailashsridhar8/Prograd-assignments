@@ -10,8 +10,8 @@ myPromise.then(function(result){
 });
 
 async function abc() {
-//   console.log(await myPromise);
-await myPromise;
+//console.log(await myPromise);
+    await myPromise;
     console.log("Third");
 }
 

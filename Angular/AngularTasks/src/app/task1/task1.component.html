@@ -1,0 +1,22 @@
+<!-- 
+
+ <ul class="list" *ngFor="let number of numberArray; let evenclass=even; let oddclass=odd" [ngClass]="{oddclass:oddclass, evenclass:evenclass}" >
+<li >{{number}} </li>
+ </ul>
+
+     -->
+<!-- 
+
+     <ul class="list" *ngFor="let number of numberArray" >
+        <li [ngClass]="number%2==0?'even':'odd'" >{{number}} </li>
+     </ul>
+        
+             -->
+<br>
+             
+             <input type="text" [(ngModel)]="enteredValue">
+    <br>
+        <br>
+                  Welcome  {{enteredValue | uppercase}}
+             <br><br>
+             <input type="button" value="logout" (click)="onLogout(ref.value)" #ref> 
