@@ -1,6 +1,9 @@
 package com.project1.hotelbookingsystem.controller;
 
 import org.springframework.stereotype.Controller;
+
+import java.io.Console;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,7 +48,7 @@ public class AppController {
 	public String login() {
 		return "login.jsp";
 	}
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	// ResponseEntity is HTTP
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
@@ -60,7 +64,8 @@ public class AppController {
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
-
+		
+		System.out.println("JWT TOKEN IS"+jwt);
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
 

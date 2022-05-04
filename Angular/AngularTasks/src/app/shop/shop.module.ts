@@ -7,7 +7,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 
-
+console.warn("Shop is Loaded");
 @NgModule({
   declarations: [
     ShopComponent,

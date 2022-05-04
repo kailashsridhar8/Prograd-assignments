@@ -12,6 +12,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CoreModule } from './core/core.module';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 import { HttpClientModule } from  '@angular/common/http';
+import { NormalModule } from './normal/normal.module';
+import { AdminComponent } from './admin/admin.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -23,12 +26,14 @@ import { HttpClientModule } from  '@angular/common/http';
     HomeComponent,
     ProfileComponent,
     AboutUsComponent,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    AdminComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DummyModule,SharedModule,FormsModule,CoreModule,HttpClientModule
+    DummyModule,SharedModule,FormsModule,CoreModule,HttpClientModule,NormalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
