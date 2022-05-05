@@ -10,14 +10,15 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
+import { LoginRoutingModule } from './login-routing.module';
 
 @NgModule({
   declarations: [
     LoginComponent
   ],
   imports: [
-    CommonModule,BrowserModule,MatButtonModule,MatGridListModule,MatDividerModule,MatCardModule,MatIconModule,MatToolbarModule,MatFormFieldModule,MatInputModule,FormsModule,ReactiveFormsModule
+    CommonModule,LoginRoutingModule,MatButtonModule,MatGridListModule,MatDividerModule,MatCardModule,MatIconModule,MatToolbarModule,MatFormFieldModule,MatInputModule,FormsModule,ReactiveFormsModule
   ],
   exports:[
     LoginComponent

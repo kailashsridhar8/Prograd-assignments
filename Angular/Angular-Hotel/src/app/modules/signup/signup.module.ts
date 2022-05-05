@@ -5,14 +5,15 @@ import { SignupComponent } from './signup/signup.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AngularmaterialModule } from 'src/app/shared/modules/angularmaterial/angularmaterial.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignupRoutingModule } from './signup-routing.module';
 
 @NgModule({
   declarations: [
     SignupComponent
   ],
   imports: [
-    CommonModule,BrowserAnimationsModule,AngularmaterialModule,FormsModule,ReactiveFormsModule
+    CommonModule,SignupRoutingModule,AngularmaterialModule,FormsModule,ReactiveFormsModule
   ],
   exports:[
     SignupComponent

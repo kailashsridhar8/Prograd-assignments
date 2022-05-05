@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         next: (data) => {
       
           this.message = 'Logged In Sucessfully'; 
-          console.log(data.user);
+          console.log(data);
         
           this.notifyService.showSuccess(this.message,"");
           this.route.navigate(['/']);

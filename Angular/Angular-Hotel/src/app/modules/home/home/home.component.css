@@ -6,12 +6,13 @@
     margin-right:auto;  
     margin-top: 30px;
     border-radius: 25px;
+    border: 2px solid black;
   }  
  .city-field{
   padding-left:2px;
      width:40%; 
-     font-family: 'Amatic SC', cursive;
-     font-size:18px;
+     font-family: Georgia, "Times New Roman", Times, serif;
+     font-size:15px;
    
  
 }
@@ -20,8 +21,8 @@
     /* width:100%; */
     padding-bottom: 8px;
     padding-left:20px;
-    font-family: 'Amatic SC', cursive;
-    font-size:18px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size:15px;
 } 
 .example-form {
     /* min-width: 150px;
@@ -42,13 +43,18 @@
     /* margin-top: 25px;
     width:100%; */
     background-color: black;
-    font-family: 'Amatic SC', cursive;
-    font-size:18px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size:15px;
  } 
+
+ .submitButton:hover{
+   color:rgba(251, 248, 170, 0.76);
+}
+
 .example-card{
   max-width: 400px;
   background-size: cover;
-  border-radius: 20px;
+  border-radius: 15px;
 
 }
 
@@ -63,20 +69,30 @@
   object-fit: cover;
 }
 .text1{
-  font-family: 'Amatic SC', cursive;
-  font-size: 60px;
-  margin-top: 40px;
-  margin-left: 80px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 58px;
+  margin-top: 70px;
+  margin-left: 50px;
  position: relative;
  
 
 }
 .text2{
-  font-family: 'Amatic SC', cursive;
-  font-size: 60px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 50px;
   margin-top: 40px;
-  margin-left: 200px;
- position: relative;
+  margin-left: 140px;
+
+ margin-bottom: 20px;
+ 
+
+}
+.text3{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-left: 270px;
+
  margin-bottom: 20px;
  
 

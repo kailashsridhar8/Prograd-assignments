@@ -27,7 +27,7 @@
                >
             
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option"      style="font-family: 'Amatic SC', cursive;">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option"      style="font-family: Georgia, Times New Roman, Times, serif;">
             {{option}}
           </mat-option> 
         </mat-autocomplete>
@@ -55,8 +55,9 @@
 
     
 </mat-card>
-<p class="text1">Memorable hotels for </p>
-<p class="text2"> moments Rich in emotions<p> 
+<p class="text1">"Memorable hotels for </p>
+<p class="text2"> Moments Rich in Emotions"<p> 
+  <p class="text3">Book Now and Get Exciting Offers!<p> 
     </div>
     <div class="col-sm">
  
@@ -80,16 +81,16 @@
      <mat-card class="example-card">
 
     <mat-card-header >
-      <mat-card-title style="  font-family: 'Amatic SC', cursive; font-weight: 400;">{{hotels[i].name}}</mat-card-title>
+      <mat-card-title style="font-family: Georgia, Times New Roman, Times, serif;">{{hotels[i].name}}</mat-card-title>
     </mat-card-header>
     <img mat-card-image src="{{hotels[i].image}}" alt="">
     <mat-card-content>
-      <p style="font-family: 'Oswald', sans-serif;font-weight: 300;">
+      <p style="font-family: Georgia, Times New Roman, Times, serif;font-weight: 300;">
         {{hotels[i].address}}
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button style="background-color: forestgreen; color:white">View Details</button>
+      <button mat-button style="background-color: rgb(0, 0, 0); color:white;font-family: Georgia, Times New Roman, Times, serif;">View Details</button>
     </mat-card-actions>
   </mat-card>
 </mat-grid-tile>
