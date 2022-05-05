@@ -29,7 +29,8 @@ passport.use(
 
 
              if (userObject) {
-                return done(null, false, { message: 'Email already registered.' });
+               console.log("Im here1");
+                return done(null, false, { message: 'Email Error' });
               }
 
 
@@ -69,12 +70,14 @@ passport.use(
           const validate = await user.isValidPassword(password);
   
           if (!validate) {
+            console.log(done("Hey"+null, false, { message: 'Wrong Password' }));
             return done(null, false, { message: 'Wrong Password' });
+
           }
   
           return done(null, user, { message: 'Logged in Successfully' });
         } catch (error) {
-            console.log(error);
+            
           return done(error);
         
         }

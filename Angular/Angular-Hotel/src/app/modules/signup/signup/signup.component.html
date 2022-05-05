@@ -1,11 +1,10 @@
-<br /><br />
-<br /><br /><br /><br />
+<br />
 
 
     <mat-card class="class1">
       <div class="container">
         <mat-card-title class="loginTitle"> Register/Signup</mat-card-title>
-
+        <mat-card-subtitle class="subTitle"><a class="atag" href="/login">Already have an account? Sign in</a></mat-card-subtitle>
         <form
           [formGroup]="signupForm"
           (ngSubmit)="onSubmit()"
@@ -172,8 +171,8 @@
             </button> -->
             <button  mat-raised-button
             color="primary"
-            mat-button  class="submitButton" >Register</button>
-            <mat-error class="errorMessage">{{ msg }} </mat-error>
+            mat-button [disabled]="signupForm.invalid" class="submitButton" >Register</button>
+            <!-- <mat-error class="errorMessage">{{ msg }} </mat-error> -->
           </div>
         </form>
       </div>

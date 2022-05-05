@@ -1,0 +1,105 @@
+
+
+
+
+<div>
+
+  
+  <div class="row">
+    <div class="col-sm">
+      <!-- <img class="offer1" src="assets/images/booking-offers.png" alt=""> -->
+    </div>
+    <div class="col-sm">
+      
+<mat-card class="class1">
+  <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+      <mat-form-field class="city-field" appearance="outline">
+          <mat-icon matPrefix>search</mat-icon>
+        <mat-label class="mat-labelSearch">Search by city</mat-label>
+        
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="City"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto" required
+         
+               >
+            
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option"      style="font-family: 'Amatic SC', cursive;">
+            {{option}}
+          </mat-option> 
+        </mat-autocomplete>
+        
+      </mat-form-field>
+     
+
+      <mat-form-field appearance="outline" class="date-field">
+          <mat-label>Enter a date range of stay</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Check-in" required formControlName="fromDate">
+            <input matEndDate placeholder="Check-out" required formControlName="toDate">
+        
+          </mat-date-range-input >
+          <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        <button  mat-raised-button
+        color="primary"
+        mat-button  class="submitButton">Search Hotels</button>
+
+
+    </form>
+
+    
+</mat-card>
+<p class="text1">Memorable hotels for </p>
+<p class="text2"> moments Rich in emotions<p> 
+    </div>
+    <div class="col-sm">
+ 
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+ 
+<mat-grid-list cols="2"  rowHeight="600px" >
+  <div *ngFor="let hotel of hotels; let i = index">
+<a [routerLink]="['/room/'+hotels[i]._id]">
+
+  <mat-grid-tile >
+     <mat-card class="example-card">
+
+    <mat-card-header >
+      <mat-card-title style="  font-family: 'Amatic SC', cursive; font-weight: 400;">{{hotels[i].name}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{hotels[i].image}}" alt="">
+    <mat-card-content>
+      <p style="font-family: 'Oswald', sans-serif;font-weight: 300;">
+        {{hotels[i].address}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button style="background-color: forestgreen; color:white">View Details</button>
+    </mat-card-actions>
+  </mat-card>
+</mat-grid-tile>
+</a>
+
+</div>
+</mat-grid-list>
+
+
+
+
+
+

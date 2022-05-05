@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 
 
@@ -31,16 +33,17 @@ export class SignupComponent implements OnInit {
 
       next: (data) => {
         console.log(data);
-        this.msg = 'Sucessfully Added!'; 
-        
-      
+        this.msg = data.message; 
+        this.notifyService.showSuccess(this.msg,"Login to continue!");
+        this.route.navigate(['/login']);
+        this.signupForm.reset();
        
       },
 
       error: (err) => {
         console.log(err);
         this.msg = JSON.parse(JSON.stringify(err)).error; 
-      
+        this.notifyService.showError(this.msg,"");
    
    
       },
@@ -69,8 +72,7 @@ export class SignupComponent implements OnInit {
   }
 
  
-  constructor(private userService: AuthService,    private fb: FormBuilder,
- ) {
+  constructor(private route: Router,private userService: AuthService,    private fb: FormBuilder,private notifyService : NotificationService) {
 
 
 

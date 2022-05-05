@@ -1,11 +1,21 @@
-<br /><br />
-<br /><br /><br /><br />
 
 
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          1 of 2
+        </div>
+        <div class="col">
+         
     <mat-card class="class1">
+      
+      <p class="ptag" >Register & Get
+         ₹500
+        Happen Money Now!</p>
       <div class="container">
         <mat-card-title class="loginTitle"> Login/Signin</mat-card-title>
-
+        <mat-card-subtitle class="subTitle"><a class="atag" href="/signup">New User? Register</a></mat-card-subtitle>
         <form
           [formGroup]="loginForm"
           (ngSubmit)="onSubmit()"
@@ -101,10 +111,13 @@
 
             <button  mat-raised-button
             color="primary"
-            mat-button  class="submitButton">Signin</button>
-            <mat-error class="errorMessage"> {{ errorMessage }}</mat-error>
+            mat-button [disabled]="loginForm.invalid" class="submitButton">Signin</button>
+            <!-- <mat-error class="errorMessage"> {{ errorMessage }}</mat-error> -->
           </div>
         </form>
       </div>
     </mat-card>
 
+        </div>
+      </div>
+    </div>

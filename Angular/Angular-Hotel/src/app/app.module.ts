@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,15 +18,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { SignupModule } from './modules/signup/signup.module';
+import { HomeModule } from './modules/home/home.module';
+import { RoomModule } from './modules/room/room.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,SharedModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,LoginModule,HttpClientModule,CoreModule,SignupModule,FormsModule,ReactiveFormsModule
+    BrowserModule,SharedModule,HomeModule,ToastrModule.forRoot(),
+    AppRoutingModule,RoomModule,
+    BrowserAnimationsModule,MatFormFieldModule,LoginModule,HttpClientModule,CoreModule,SignupModule,FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

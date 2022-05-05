@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 
 
@@ -16,13 +18,14 @@ export class LoginComponent implements OnInit {
   hidden: boolean = true;
   hide:boolean = true;
 //user:any = {}; 
-  errorMessage!:any;
+  message!:any;
 
 
   loginForm: FormGroup;
 
 
   onSubmit() {
+    
     console.log(this.loginForm.controls['email'].value);
     this.authService.loginUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
     .subscribe(
@@ -30,17 +33,19 @@ export class LoginComponent implements OnInit {
 
 
         next: (data) => {
-          console.log(data);
-          this.errorMessage = 'Logged In Sucessfully'; 
+      
+          this.message = 'Logged In Sucessfully'; 
+          console.log(data.user);
         
-        
-         
+          this.notifyService.showSuccess(this.message,"");
+          this.route.navigate(['/']);
+          this.loginForm.reset();
         },
   
         error: (err) => {
-          console.log(err);
-          this.errorMessage = JSON.parse(JSON.stringify(err)).error; 
-        
+          console.log("Error"+err);
+          this.message = JSON.parse(JSON.stringify(err)).error; 
+          this.notifyService.showError(this.message,"");
      
      
         },
@@ -55,7 +60,7 @@ export class LoginComponent implements OnInit {
     
     )
   }
-  constructor(private authService:AuthService) {
+  constructor(private route: Router,private authService:AuthService,private notifyService : NotificationService) {
     this.loginForm = new FormGroup({
 
     

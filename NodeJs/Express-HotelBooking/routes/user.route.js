@@ -21,12 +21,15 @@ router.post(
         'signup',
         async (err, user, info) => {
           try {
-            if (err || !user) {
-               res.status(400).send("Email already registered.");  
+            if (!user) {
+               res.status(400).send("Email already registered");  
+            }
+            else if(err){
+              res.status(400).send("Error. Please try again later");  
             }
             else{
                res.json({
-                    message: 'Signup successful',
+                    message: 'Registered Successfully',
                    user: user
                 });
                  res.json();
@@ -61,7 +64,7 @@ router.post(
           try {
             if (err || !user) {
               const error = new Error('An error occurred.');
-  
+              res.status(400).send("Invalid Credentials");  
               return next(error);
             }
   
@@ -70,12 +73,15 @@ router.post(
               { session: false },
               async (error) => {
             
-                if (error) return next(error);
+                if (error) 
+               // return next(error);
+               return res.status(400).send("Error in JWT Token Generation");
+              //  res.json(error);
   
                 const body = { _id: user._id, email: user.email };
                 const token = jwt.sign({ user: body }, 'TOP_SECRET');
                 const msg="Logged In";
-                return res.json({ token,msg });
+                return res.json({ token,msg,body});
               }
             );
           } catch (error) {
@@ -85,6 +91,10 @@ router.post(
       )(req, res, next);
     }
   );
+
+
+  
+  
 
 
 
