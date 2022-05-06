@@ -21,13 +21,15 @@ import { SignupModule } from './modules/signup/signup.module';
 import { HomeModule } from './modules/home/home.module';
 import { RoomModule } from './modules/room/room.module';
 
+import { AdminModule } from './modules/admin/admin.module';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,SharedModule,HomeModule,ToastrModule.forRoot(),
-    AppRoutingModule,RoomModule,
+    AppRoutingModule,RoomModule,AdminModule,
     BrowserAnimationsModule,MatFormFieldModule,LoginModule,HttpClientModule,CoreModule,SignupModule,FormsModule,ReactiveFormsModule
   ],
   providers: [],

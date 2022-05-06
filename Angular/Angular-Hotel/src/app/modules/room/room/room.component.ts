@@ -11,7 +11,7 @@ export class RoomComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,private roomService:RoomService) { }
   rooms:any=[];
-  
+  hotels:any=[];
   id:any;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -23,7 +23,24 @@ export class RoomComponent implements OnInit {
     this.roomService.getRoomsByHotel(this.id).subscribe({
 
       next:(data)=>{
-          console.log(data);
+          
+        for (let roomId of data) {
+          console.log(roomId);
+          // this.options.push(city.name);
+          this.roomService.getRoomDetailsById(roomId).subscribe({
+            next: (data)=>{
+              this.rooms.push(data);
+              console.log(this.rooms);
+            },
+            error: (data)=>{
+              console.log(data);
+            }
+          })
+        }
+
+
+
+
       },
       error:(err)=>{
         console.log(err);

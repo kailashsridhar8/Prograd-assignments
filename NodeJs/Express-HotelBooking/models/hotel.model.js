@@ -31,6 +31,12 @@ const hotelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  breakfast:{
+    type:Boolean,
+  },
+  offer:{
+    type:String,
+  }
 });
 
 

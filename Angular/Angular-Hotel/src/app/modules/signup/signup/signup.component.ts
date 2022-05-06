@@ -25,6 +25,12 @@ export class SignupComponent implements OnInit {
   show!: boolean;
   
   onSubmit() {
+
+    if (this.signupForm.invalid) {
+      return;
+    }
+
+
     console.log(this.signupForm.controls['email'].value);
 
     this.userService.signUpUser(this.signupForm.controls['username'].value,this.signupForm.controls['email'].value, this.signupForm.controls['password'].value)

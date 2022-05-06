@@ -29,3 +29,16 @@ exports.getHotelsByCity = function (req, res) {
       res.status(400).send("Error");
     });
 };
+
+
+exports.getAllHotels = function (req, res) {
+  hotelModel
+    .find()
+    .then((result) => {
+      console.log("hotels" + result[0].name);
+      res.send(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};

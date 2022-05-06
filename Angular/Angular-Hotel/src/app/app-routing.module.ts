@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDashboardComponent } from './modules/admin/admin-dashboard/admin-dashboard.component';
 import { HomeComponent } from './modules/home/home/home.component';
 import { LoginComponent } from './modules/login/login/login.component';
 import { RoomComponent } from './modules/room/room/room.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
     loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
   },
 
-  {path:'room/:id',component:RoomComponent}
+  {path:'room/:id',component:RoomComponent},
+  {path:'admin-dashboard',component:AdminDashboardComponent}
 ];
 
 @NgModule({

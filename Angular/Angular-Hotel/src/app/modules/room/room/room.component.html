@@ -1,1 +1,46 @@
-<p>room works!</p>
+
+<!-- <mat-grid-list cols="1"  rowHeight="190px"  > -->
+    <div *ngFor="let room of rooms; let i = index">
+  <!-- <a [routerLink]="['/room/'+hotels[i]._id]"> -->
+  
+    <!-- <mat-grid-tile > -->
+       <mat-card class="example-card">
+  
+      <mat-card-header >
+        <mat-card-title style="font-family: Georgia, Times New Roman, Times, serif;">{{rooms[i].roomtype}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{rooms[i].image}}" alt="">
+      <mat-card-content>
+        <p style="font-family: Georgia, Times New Roman, Times, serif;font-weight: 300;">
+          {{rooms[i].address}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button style="background-color: rgb(0, 0, 0); color:white;font-family: Georgia, Times New Roman, Times, serif;">View Details</button>
+      </mat-card-actions>
+    </mat-card>
+  <!-- </mat-grid-tile> -->
+  <!-- </a> -->
+  
+  </div>
+  <!-- </mat-grid-list>  -->
+
+
+  <!-- <mat-card class="example-card">
+
+
+    <mat-card-header >
+        <mat-card-title style="font-family: Georgia, Times New Roman, Times, serif;">{{rooms[i].roomType}}</mat-card-title>
+      </mat-card-header>
+  </mat-card> -->
+
+
+
+  <div class="row">
+      <div class="col-6">
+Hi
+      </div>
+      <div class="col-6">
+z
+      </div>
+  </div>

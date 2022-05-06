@@ -15,11 +15,11 @@ const roomSchema = mongoose.Schema({
     },
     dates: {
       type: [Object],
-      required: true,
+      
     },
-    images: {
+    image: {
       type: String,
-      required: true,
+      
     },
   });
 

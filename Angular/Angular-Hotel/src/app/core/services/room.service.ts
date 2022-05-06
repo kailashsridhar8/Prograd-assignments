@@ -13,6 +13,10 @@ export class RoomService {
     return this.http.post("http://127.0.0.1:8000/hotel/getRoomsByHotel",{id:id});
   }
 
+  getRoomDetailsById(id:any):Observable<any>{
+    return this.http.post("http://127.0.0.1:8000/hotel/getRoomDetailsById",{id:id});
+  }
+
   // getHotelsByCity(city: string,noOfDays: Number){
    
   //   return this.http.post("http://127.0.0.1:8000/hotel/getHotelsByCity",{city:city,noOfDays:noOfDays});

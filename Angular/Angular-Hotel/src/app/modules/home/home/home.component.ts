@@ -18,45 +18,43 @@ export class HomeComponent implements OnInit {
   rough: any = {};
   filteredOptions!: Observable<string[]>;
   noOfDays!: Number;
-  hotels:any=[];
-
+  hotels: any = [];
 
   onSubmit() {
-    // console.log('City' + this.myControl.value);
-    // console.log(
-    //   'fromDate' + this.searchForm.controls['fromDate'].value.getTime()
-    // );
-    // console.log('toDate' + this.searchForm.controls['toDate'].value.getTime());
 
+    if (this.searchForm.invalid) {
+      return;
+    }
+
+const city=this.myControl.value;
     const from = this.searchForm.controls['fromDate'].value.getTime();
 
     const to = this.searchForm.controls['toDate'].value.getTime();
 
     const diff = to - from;
     const oneDay = 1000 * 60 * 60 * 24;
-      const days=diff / oneDay;
+    const days = diff / oneDay;
 
+    var event = new Date(this.searchForm.controls['fromDate'].value);
+    let date = JSON.stringify(event);
+    date = date.slice(1, 11);
 
-      var event = new Date(this.searchForm.controls['fromDate'].value);
-      let date = JSON.stringify(event)
-        date = date.slice(1,11)
-
-
-console.log("from"+new Date(date));
-    this.hotelService.getHotelsByCity(this.myControl.value,days).subscribe({
-
-
+    console.log('from' + new Date(date));
+    this.hotelService.getHotelsByCity(city, days).subscribe({
       next: (data) => {
         console.log(data);
         this.hotels = data;
 
-        this.notifyService.showInfo("For "+days+" Nights",this.hotels.length+" Hotels Available in "+this.myControl.value);
+        this.notifyService.showInfo(
+          'For ' + days + ' Nights',
+          this.hotels.length + ' Hotels Available in ' + this.myControl.value
+        );
       },
-      error: (data) => {
-
-      }
-
-    })
+      error: (data) => {},
+    });
+      this.hotelService.setFromDate(from);
+      this.hotelService.setToDate(to);
+    // this.route.navigate(['/hotel/:city']);
 
   }
 
@@ -69,6 +67,8 @@ console.log("from"+new Date(date));
       fromDate: new FormControl('', [Validators.required]),
       toDate: new FormControl('', [Validators.required]),
     });
+
+    console.log(this.hotelService.fromDate);
   }
 
   ngOnInit(): void {
@@ -91,6 +91,23 @@ console.log("from"+new Date(date));
         console.log(err);
       },
     });
+
+    this.hotelService.getAllHotels().subscribe({
+      next: (data) => {
+      this.hotels=data;
+        console.log(data);
+      },
+
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+   
+
+
+
+
   }
 
   //  getFullName(item):void=> {

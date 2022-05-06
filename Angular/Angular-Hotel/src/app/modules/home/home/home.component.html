@@ -1,4 +1,35 @@
 
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-4 col-md-0">
+Hi
+    </div>
+    <div class="col-8 col-md-12">
+HI
+    </div>
+    <div class="col-2 col-md-0">
+      HI
+    </div>
+
+</div>
+
+</div> -->
+
+<!-- 
+<div class="row">
+  <div class="col-">
+Hi
+  </div>
+  <div class="col-6">
+z
+  </div>
+  <div class="col-2">
+    z
+      </div>
+</div> -->
+
+
+
 
 
 
@@ -55,9 +86,21 @@
 
     
 </mat-card>
-<p class="text1">"Memorable hotels for </p>
-<p class="text2"> Moments Rich in Emotions"<p> 
-  <p class="text3">Book Now and Get Exciting Offers!<p> 
+
+<div class="container">
+  <div class="row">
+
+    <p class="text1">"Memorable hotels for </p>
+    <p class="text2"> Moments Rich in Emotions"<p> 
+      <p class="text3">Book Now and Get Exciting Offers!<p> 
+  
+  </div>
+
+</div>
+
+
+
+   
     </div>
     <div class="col-sm">
  
@@ -70,35 +113,62 @@
 
 
 
+<div class="container">
+  <div class="row">
+
+    <!-- <mat-grid-list cols="1"  rowHeight="590px"  > -->
+      <div class="col-12 col-md-6" *ngFor="let hotel of hotels; let i = index">
+        <!-- <a [routerLink]="['/room/'+hotels[i]._id]"> -->
+        
+          <!-- <mat-grid-tile > -->
+             <mat-card class="example-card">
+              <span *ngIf="hotels[i].breakfast" class="featured">Breakfast Included
+
+                
+                </span>
+            <mat-card-header >
+              <mat-card-title style="font-family: Georgia, Times New Roman, Times, serif;">{{hotels[i].name}} - {{hotels[i].city}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{hotels[i].image}}" alt="">
+            <mat-card-content>
+              <p style="font-family: Georgia, Times New Roman, Times, serif;font-weight: 300;">
+                {{hotels[i].address}}
+              </p>
+            </mat-card-content>
 
 
- 
-<mat-grid-list cols="2"  rowHeight="600px" >
-  <div *ngFor="let hotel of hotels; let i = index">
-<a [routerLink]="['/room/'+hotels[i]._id]">
+            <div class="row">
+              <div class="col-6">
+                <span *ngIf="hotels[i].offer" class="offers">
+                  {{hotels[i].offer}}
 
-  <mat-grid-tile >
-     <mat-card class="example-card">
+                
+                </span>
+              </div>
+              <div class="col-6">
+                <mat-card-actions>
+                  <button class="viewButton" [routerLink]="['/room/'+hotels[i]._id]" mat-button style="background-color: rgb(0, 0, 0); color:white;font-family: Georgia, Times New Roman, Times, serif;">View Details</button>
+                </mat-card-actions>
+              </div>
+          </div>
 
-    <mat-card-header >
-      <mat-card-title style="font-family: Georgia, Times New Roman, Times, serif;">{{hotels[i].name}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="{{hotels[i].image}}" alt="">
-    <mat-card-content>
-      <p style="font-family: Georgia, Times New Roman, Times, serif;font-weight: 300;">
-        {{hotels[i].address}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button style="background-color: rgb(0, 0, 0); color:white;font-family: Georgia, Times New Roman, Times, serif;">View Details</button>
-    </mat-card-actions>
-  </mat-card>
-</mat-grid-tile>
-</a>
+            
+          </mat-card>
+        <!-- </mat-grid-tile> -->
+        <!-- </a> -->
+        
+        </div>
+        <!-- </mat-grid-list> -->
+        
+    
+    
+     </div>
+    
+
 
 </div>
-</mat-grid-list>
 
+ 
 
 
 

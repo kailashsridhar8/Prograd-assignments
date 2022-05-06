@@ -1,0 +1,28 @@
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+.example-card{
+  display:inline-block;
+  width: 80%;
+  font-family: Oswald, sans-serif;
+
+
+}
+.mat-card-cvr{
+  width: 100%;
+  text-align:center;
+}
+
+.example-card2{
+  left: 300px;
+  display:inline-block;
+  width: 100%;
+  font-family: Oswald, sans-serif;
+
+}
+
+mat-grid-tile {
+  /* background: rgb(0, 0, 0); */
+}

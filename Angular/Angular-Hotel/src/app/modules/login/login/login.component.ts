@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit() {
+
+    if (this.loginForm.invalid) {
+      return;
+    }
     
     console.log(this.loginForm.controls['email'].value);
     this.authService.loginUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
