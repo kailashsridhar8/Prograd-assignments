@@ -52,8 +52,8 @@ const city=this.myControl.value;
       },
       error: (data) => {},
     });
-      this.hotelService.setFromDate(from);
-      this.hotelService.setToDate(to);
+      this.hotelService.setFromDate(this.searchForm.controls['fromDate'].value);
+      this.hotelService.setToDate(this.searchForm.controls['toDate'].value);
     // this.route.navigate(['/hotel/:city']);
 
   }

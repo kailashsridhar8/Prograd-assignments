@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HotelService {
+
   fromDate: any;
   toDate: any;
   constructor(private http: HttpClient) { }
@@ -33,6 +34,11 @@ export class HotelService {
   setToDate(toDate:any){
     this.toDate=toDate;
   }
-
+  getToDate(){
+    return this.toDate;
+  }
+  getFromDate(){
+    return this.fromDate;
+  }
 
 }

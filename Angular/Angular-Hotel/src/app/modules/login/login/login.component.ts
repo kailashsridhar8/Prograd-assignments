@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
 
 
         next: (data) => {
-      
-          this.message = 'Logged In Sucessfully'; 
-          console.log(data);
+          localStorage.setItem('user_id', data._id);
+          this.message = data.msg; 
+         // console.log("subscribed login data"+data.token);
         
           this.notifyService.showSuccess(this.message,"");
           this.route.navigate(['/']);

@@ -44,7 +44,7 @@ exports.addRoom = function (req, res) {
     capacity: req.body.capacity,
 
     dates: req.body.dates,
-    images: req.body.images,
+    image: req.body.image,
     availablity: req.body.availablity,
   })
     .save()

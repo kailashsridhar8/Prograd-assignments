@@ -9,18 +9,22 @@ const roomSchema = mongoose.Schema({
       type: Number,
       required: true,
     },
+    ratings:{
+      type: String,
+    },
     capacity: {
       type: Number,
       required: true,
     },
-    dates: {
-      type: [Object],
+    availableFrom: {
+      type: String,//for now string
       
     },
     image: {
       type: String,
       
     },
+    
   });
 
   module.exports = mongoose.model("room", roomSchema);

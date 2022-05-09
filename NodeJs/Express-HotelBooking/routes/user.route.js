@@ -81,7 +81,7 @@ router.post(
                 const body = { _id: user._id, email: user.email };
                 const token = jwt.sign({ user: body }, 'TOP_SECRET');
                 const msg="Logged In";
-                return res.json({ token,msg,body});
+                return res.json({ token,msg,_id:user._id});
               }
             );
           } catch (error) {

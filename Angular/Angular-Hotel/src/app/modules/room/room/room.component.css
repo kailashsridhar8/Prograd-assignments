@@ -1,8 +1,83 @@
 .example-card{
-      width: 800px;
-      height:200px;
+      width: 96%;
+      height:300px;
       margin:10px;
       background-size: cover;
       border-radius: 15px;
+      font-family: Georgia, "Times New Roman", Times, serif;
 
     }
+  .viewButton{
+    display: flex;
+    float: right; 
+    position: relative;
+    top:10px;
+    right:10px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  .example-header-image {
+    height: 240px;
+    position: relative;
+    left:15px;
+    top:10px;
+    background-size: cover;
+    object-fit: cover;
+   
+    
+  }
+
+  .amenities{
+    margin-left:40px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  .sleeps{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    margin-left:40px;
+    color:rgb(197, 82, 0);
+  }
+  .includes{
+    font-family: Georgia, "Times New Roman", Times, serif;
+   color:rgb(197, 82, 0);
+  }
+  
+ 
+  .strikethrough {
+    position: relative;
+    font-size: 20px;
+    margin-left:10px;
+  }
+  .strikethrough:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
+    
+    -webkit-transform:rotate(-5deg);
+    -moz-transform:rotate(-5deg);
+    -ms-transform:rotate(-5deg);
+    -o-transform:rotate(-5deg);
+    transform:rotate(-5deg);
+  }
+
+  .roomPrice{
+    font-size: 20px;
+    margin-left:23px;
+  }
+  .bookingFee{
+    font-size: 15px;
+    margin-left:140px;
+    color:green;
+  }
+  .actualPrice{
+    font-size: 20px;
+    margin-left:190px;
+ 
+   
+  }
+  .welcomeSpan{
+    position:relative;
+    
+  }
