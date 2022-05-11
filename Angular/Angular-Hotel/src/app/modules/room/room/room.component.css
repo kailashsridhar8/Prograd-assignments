@@ -1,7 +1,7 @@
 .example-card{
-      width: 96%;
+      width: 98%;
       height:300px;
-      margin:10px;
+      margin:8px;
       background-size: cover;
       border-radius: 15px;
       font-family: Georgia, "Times New Roman", Times, serif;
@@ -80,4 +80,35 @@
   .welcomeSpan{
     position:relative;
     
+  }
+  .hotelName{
+    margin-left:40px;
+    margin-top: 10px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  .hotelAddress{
+    margin-left:40px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+ 
+  .ascot{
+    margin-top: 5px;
+    margin-left:140px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+
+  .ascotClass{
+    background-color: #7BB135;
+    border-radius: 20px;
+    padding: 1px;
+    margin-top: 10px;
+    margin-right: 10px;
+   
+  }
+  .hotel{
+    background-color: #d3e3be;
+   margin-left: 8px;
+    padding: 1px;
+    margin-top: 10px;
+ 
   }

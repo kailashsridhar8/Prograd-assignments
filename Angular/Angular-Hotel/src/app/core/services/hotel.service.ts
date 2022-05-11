@@ -28,6 +28,10 @@ export class HotelService {
     return this.http.post("http://127.0.0.1:8000/hotel/getHotelsByCity",{city:city,noOfDays:noOfDays});
   }
 
+  getHotelById(id: string){
+   
+    return this.http.post("http://127.0.0.1:8000/hotel/getHotelById",{id:id});
+  }
   setFromDate(fromDate:any){
     this.fromDate=fromDate;
   }

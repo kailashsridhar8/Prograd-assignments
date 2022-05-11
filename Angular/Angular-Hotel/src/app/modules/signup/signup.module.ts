@@ -7,10 +7,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AngularmaterialModule } from 'src/app/shared/modules/angularmaterial/angularmaterial.module';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupRoutingModule } from './signup-routing.module';
+import { DialogSignupComponent } from './dialog-signup/dialog-signup.component';
 
 @NgModule({
   declarations: [
-    SignupComponent
+    SignupComponent,
+    DialogSignupComponent
   ],
   imports: [
     CommonModule,SignupRoutingModule,AngularmaterialModule,FormsModule,ReactiveFormsModule

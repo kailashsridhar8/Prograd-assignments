@@ -31,6 +31,17 @@ exports.getHotelsByCity = function (req, res) {
 };
 
 
+exports.getHotelById = function (req, res) {
+  hotelModel.findById(req.body.id).then((result)=>{
+    console.log(result);
+    res.json(result);
+  })
+  .catch((err)=>{
+    res.send(err);
+  })
+};
+
+
 exports.getAllHotels = function (req, res) {
   hotelModel
     .find()

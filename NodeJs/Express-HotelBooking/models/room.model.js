@@ -16,10 +16,10 @@ const roomSchema = mongoose.Schema({
       type: Number,
       required: true,
     },
-    availableFrom: {
-      type: String,//for now string
+    // availableFrom: {
+    //   type: String,//for now string
       
-    },
+    // },
     image: {
       type: String,
       

@@ -9,6 +9,6 @@ router.get('/getAllHotels',hotelController.getAllHotels);
 router.post('/getRoomsByHotel',roomController.getRoomsByHotel);
 router.post('/getRoomDetailsById',roomController.getRoomDetailsById);
 router.get('/getAllRooms',roomController.getAllRooms);
-
+router.post('/getHotelById',hotelController.getHotelById);
 
 module.exports=router;

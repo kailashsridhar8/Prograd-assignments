@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { HotelService } from 'src/app/core/services/hotel.service';
 import { RoomService } from 'src/app/core/services/room.service';
+import { DialogLoginComponent } from '../../login/dialog-login/dialog-login.component';
+
+
 
 @Component({
   selector: 'app-room',
@@ -10,9 +14,10 @@ import { RoomService } from 'src/app/core/services/room.service';
 })
 export class RoomComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute,private roomService:RoomService,private hotelService:HotelService) { }
+  constructor(public dialog: MatDialog,private activatedRoute: ActivatedRoute,private roomService:RoomService,private hotelService:HotelService) { }
   rooms:any=[];
-  hotels:any=[];
+  hotel:any={};
+  isLoggedIn:boolean=false;
   fromDate:any;
   toDate:any;
   id:any;
@@ -21,11 +26,31 @@ export class RoomComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.id=params['id'];
       this.getRoomsId();
+        
+    
+
+
     });
     this.fromDate=this.hotelService.getFromDate();
     this.toDate=this.hotelService.getToDate();
     console.log(this.fromDate);
+
+    this.hotelService.getHotelById(this.id).subscribe({
+      next:(data) => {
+        
+        this.hotel= data;
+      
+      },
+      error:(err) => {
+        console.log("Error"+err);
+      }
+  })
+  
+
+
   }
+
+
   getRoomsId(){
     this.roomService.getRoomsByHotel(this.id).subscribe({
 
@@ -66,6 +91,17 @@ export class RoomComponent implements OnInit {
 
       
     ) 
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogLoginComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  onClick(roomId:Number){
+      alert("Room Booked Sucessfully");
   }
 
 }

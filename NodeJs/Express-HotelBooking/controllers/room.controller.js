@@ -42,7 +42,7 @@ exports.addRoom = function (req, res) {
     price: req.body.price,
 
     capacity: req.body.capacity,
-
+    ratings: req.body.ratings,
     dates: req.body.dates,
     image: req.body.image,
     availablity: req.body.availablity,

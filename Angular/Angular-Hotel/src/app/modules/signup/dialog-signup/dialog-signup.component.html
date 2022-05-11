@@ -1,0 +1,183 @@
+<br />
+
+
+    <mat-card class="class1">
+      <p class="ptag" >Register & Get
+        ₹500
+       Happen Money Now!</p>
+      <div class="container">
+        <mat-card-title class="loginTitle"> Register/Signup</mat-card-title>
+        <mat-card-subtitle class="subTitle"><a class="atag" href="/login">Already have an account? Sign in</a></mat-card-subtitle>
+        <form
+          [formGroup]="signupForm"
+          (ngSubmit)="onSubmit()"
+          class="example-form"
+          autocomplete="off"
+        >
+          <div class="example-container">
+            <mat-form-field class="username-field" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input
+                matInput
+                placeholder="Enter Your Username"
+                formControlName="username"
+                required
+              />
+              <mat-error *ngIf="!signupForm.get('username')?.errors?.required&& (signupForm.get('username')?.errors?.minlength)"> 
+                  Password length must be greater than 6
+
+                </mat-error>
+           
+
+              <mat-error
+                *ngIf="
+                  signupForm.get('username')?.invalid &&
+                  (signupForm.get('username')?.dirty ||
+                    signupForm.get('username')?.touched) &&
+                  signupForm.get('username')?.errors?.required
+                "
+              >
+                This field is required
+              </mat-error>
+            </mat-form-field>
+
+
+
+            <mat-form-field class="phone-field" appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input
+                  matInput
+                  placeholder="Enter Your Phone Number"
+                  formControlName="phone"
+                  required
+                />
+                <mat-error *ngIf="!signupForm.get('phone')?.errors?.required&& (signupForm.get('phone')?.errors?.pattern)"> 
+                    Please, Enter 10 digit Mobile Number.
+  
+                  </mat-error>
+             
+  
+                <mat-error
+                  *ngIf="
+                    signupForm.get('phone')?.invalid &&
+                    (signupForm.get('phone')?.dirty ||
+                      signupForm.get('phone')?.touched) &&
+                    signupForm.get('phone')?.errors?.required
+                  "
+                >
+                  This field is required
+                </mat-error>
+              </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+            <mat-form-field class="email-field" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                placeholder="Enter Your Email"
+                formControlName="email"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  !signupForm.get('email')?.errors?.required &&
+                  signupForm.get('email')?.errors?.pattern
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  signupForm.get('email')?.invalid &&
+                  (signupForm.get('email')?.dirty ||
+                    signupForm.get('email')?.touched) &&
+                  signupForm.get('email')?.errors?.required
+                "
+              >
+                This field is required
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="password-field" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                type="password"
+                placeholder="Enter Your Password"
+                [type]="hidden ? 'password' : 'text'"
+                formControlName="password"
+              />
+              <mat-icon matSuffix (click)="hidden = !hidden">{{
+                hidden ? "visibility_off" : "visibility"
+              }}</mat-icon>
+              <mat-error *ngIf="!signupForm.get('password')?.errors?.required">
+                Password length must be greater than or equal to 8 and password
+                must contain one or more uppercase , lowercase , numeric and
+                special characters
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  signupForm.get('password')?.invalid &&
+                  (signupForm.get('password')?.dirty ||
+                    signupForm.get('password')?.touched) &&
+                  signupForm.get('password')?.errors?.required
+                "
+              >
+                This field is required
+              </mat-error>
+            </mat-form-field>
+
+            <!-- <mat-form-field class="password-field" appearance="outline">
+              <mat-label>Confirm Password</mat-label>
+              <input
+                matInput
+                type="password"
+                placeholder="Enter Your Password"
+                [type]="hide ? 'password' : 'text'"
+                formControlName="confirmPassword"
+              />
+              <mat-icon matSuffix (click)="hide = !hide">{{
+                hide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+
+              <mat-error
+                *ngIf="
+                  signupForm.get('confirmPassword')?.invalid &&
+                  (signupForm.get('confirmPassword')?.dirty ||
+                    signupForm.get('confirmPassword')?.touched) &&
+                  signupForm.get('confirmPassword')?.errors?.required
+                "
+              >
+                This field is required
+              </mat-error>
+
+              <mat-error *ngIf="signupForm.value.confirmPassword"
+                >Passwords do not match.</mat-error
+              >
+            </mat-form-field> -->
+
+            <!-- <button
+              mat-raised-button
+              color="primary"
+              mat-button
+              class="submitButton"
+            >
+              Register
+            </button> -->
+            <button  mat-raised-button
+            color="primary"
+            mat-button  class="submitButton" >Register</button>
+            <!-- <mat-error class="errorMessage">{{ msg }} </mat-error> -->
+          </div>
+        </form>
+      </div>
+    </mat-card>
+

@@ -5,9 +5,10 @@ import { AngularmaterialModule } from 'src/app/shared/modules/angularmaterial/an
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-import { AppRoutingModule } from 'src/app/app-routing.module';
+
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminRoutingModule } from './admin-routing.module';
 
 
 @NgModule({
@@ -15,7 +16,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AdminComponent,AdminDashboardComponent
   ],
   imports: [
-    CommonModule,AppRoutingModule,AngularmaterialModule,FormsModule,ReactiveFormsModule,MatFormFieldModule
+    CommonModule,AdminRoutingModule,AngularmaterialModule,FormsModule,ReactiveFormsModule,MatFormFieldModule
+  ],
+  exports:[
+    AdminComponent,AdminDashboardComponent
   ]
 })
 export class AdminModule { }

@@ -45,7 +45,7 @@ export class AdminDashboardComponent implements OnInit {
       return;
     }
 
-    this.adminService.onAddRoom(form.value.roomtype,form.value.price,form.value.capacity,form.value.image).subscribe({
+    this.adminService.onAddRoom(form.value.roomtype,form.value.price,form.value.capacity,form.value.image,form.value.ratings).subscribe({
       next:(data) => {
       
         this.notificationService.showSuccess("Room Added Sucessfully!","");

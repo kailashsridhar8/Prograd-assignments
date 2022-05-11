@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-
+    // isLoggedIn:boolean;
   constructor(private http: HttpClient) { }
 
   loginUser(email:string,password:string):Observable<any>{
@@ -15,4 +15,9 @@ export class AuthService {
   signUpUser(username:string,email:string,password:string):Observable<any>{
     return this.http.post("http://127.0.0.1:8000/user/signup",{username:username,email:email,password:password});
   }
+
+  // setLoginStatus(status:boolean) {
+  //   this.isLoggedIn=status;
+  // }
+
 }

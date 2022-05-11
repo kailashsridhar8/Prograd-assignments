@@ -1,159 +1,253 @@
 
 
 
+  <div class="row">
+    <div class="col-8">
+      <div class="hotel">
+      <h1 class="hotelName">{{hotel.name}}</h1>
+      <p class="hotelAddress">{{hotel.address}}</p>
+      </div>
+      </div>
+      <div class="col-4">
+<div class="ascotClass">
+  <h2 class="ascot">HappenCares :)</h2>
+  <p style="    font-family: Georgia, Times New Roman, Times, serif;margin-left: 8px;">Our Commitment to Wellness, Cleanliness and Sustainability</p>
+
+</div>
+
+      </div>
+      </div>
+
+
+
+
 
 <div class="row">
-
-
   <div class="col-3">
-
-
+    
     <div class="row">
-      <div class="container">
-        <!-- <mat-card></mat-card> -->
+      <div class="col-12 mt-2 ms-3 shadow-sm p-3 mb-2 bg-body rounded">
+        <div class="d-flex">
+          <div class="logo">
+            <img src="assets/images/sanitizer.svg" alt="logo" />
+          </div>
+          <div class="info ms-4">
+            <h3>Preventative Equipment</h3>
+            <ul class="list-unstyled">
+              <li><i class="fa-solid fa-check me-2"></i> Hand sanitizer</li>
+              <li><i class="fa-solid fa-check me-2"></i>Free face masks</li>
+              <li>
+                <i class="fa-solid fa-check me-2"></i>Sterilizing equipment
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 ms-3 shadow-sm p-3 mb-2 bg-body rounded">
+        <div class="d-flex">
+          <div class="logo">
+            <img src="assets/images/safety.svg" alt="logo" />
+          </div>
+          <div class="info ms-4">
+            <h3>Safety Features</h3>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fa-solid fa-check me-2"></i>Staff trained in safety
+                protocol
+              </li>
+              <li><i class="fa-solid fa-check me-2"></i>Temperature check</li>
+              <li><i class="fa-solid fa-check me-2"></i>Daily disinfection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12  ms-3 shadow-sm p-3 mb-2 bg-body rounded">
+        <div class="d-flex">
+          <div class="logo">
+            <img src="assets/images/dinner.svg" alt="logo" />
+          </div>
+          <div class="info ms-4">
+            <h3>Food and Drinks</h3>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fa-solid fa-check me-2"></i> Room service [24-hour]
+              </li>
+              <li><i class="fa-solid fa-check me-2"></i>Restaurants</li>
+              <li><i class="fa-solid fa-check me-2"></i>Bar Facilities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12  ms-3 shadow-sm p-3 mb-2 bg-body rounded">
+        <div class="d-flex">
+          <div class="logo">
+            <img src="assets/images/wellness.svg" alt="logo" />
+          </div>
+          <div class="info ms-4">
+            <h3>Wellness</h3>
+            <ul class="list-unstyled">
+              <li><i class="fa-solid fa-check me-2"></i> Fitness center</li>
+              <li><i class="fa-solid fa-check me-2"></i>Spa</li>
+              <li><i class="fa-solid fa-check me-2"></i>Massage</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="col-md-9 ">
+    <div class="row">
+      <div class="col-12" *ngFor="let room of rooms; let i = index">
+        <!-- <a [routerLink]="['/room/'+hotels[i]._id]"> -->
 
-   
-          </div>
-          <div class="col-md-9 col-xs-12">
-         <div class="row">
-            <div class="col-12" *ngFor="let room of rooms; let i = index">
-              <!-- <a [routerLink]="['/room/'+hotels[i]._id]"> -->
-              
-                <!-- <mat-grid-tile > -->
-                   <mat-card class="example-card">
-              
-                  <mat-card-header >
-                    <mat-card-title style="font-family: Georgia, Times New Roman, Times, serif;">{{rooms[i].roomtype}}</mat-card-title>
-                    <span class="star">
-                      <i class="fa fa-star"></i>
-                      {{rooms[i].ratings}}(189)
-                    </span>
-                  </mat-card-header>
-            
-                  <div class="row ">
-                    <div class="col-5 ">
-                      <img class="example-header-image" mat-card-image src="{{rooms[i].image}}" alt="roomImage">
-                    </div>
-                    <div class="col-3">
+        <!-- <mat-grid-tile > -->
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title
+              style="font-family: Georgia, Times New Roman, Times, serif"
+              >{{ rooms[i].roomtype }}</mat-card-title
+            >
+            <span class="star">
+              <i class="fa fa-star"></i>
+              {{ rooms[i].ratings }}(189)
+            </span>
+          </mat-card-header>
 
-
-            
-                      
-
-                          <div class="row">
-                            <div class="amenities">
-
-                              <h3 class="includes">Your price includes:</h3>
-                              <ul class="list-unstyled">
-                                <li>
-                                  <i class="fa-solid fa-wifi me-2"></i>
-                                  Wifi
-                                </li>
-                                <li>
-                                  <i class="fa-solid fa-person-shelter me-2"></i>
-                                  Balcony
-                                </li>
-                                <li>
-                                  <i class="fa-solid fa-water-ladder me-2"></i>
-                                  Pool View
-                                  </li>
-                                <li>
-                                  <i class="fa-solid fa-tv me-2"></i>
-                                  Tv
-                                </li>
-                                <li>
-                                  <i class="fa-solid fa-shower me-2"></i>
-                                  Shower
-                                </li>
-                              
-                              </ul>
-
-                            </div>
-                    
-
-
-                   
-                   
-                       
-                         
-                       
-                      </div>
-
-                    <div >
-                    
-                       <h3 class="sleeps">Guests: <h2>  <i class="fa-solid fa-people-group"></i>  {{rooms[i].capacity}}</h2></h3> 
-                     
-                    
-                    
-                    </div>  
-                     
-                     
-
-
-                    </div>
-                    <div class="col-4">
-
-                    <span class="welcomeSpan"> Well done! You're getting this property's lowest price!</span>
-                    <br>
-                    <br>
-
-                      <div class="price">
-                        Original Price (1 room x 3 nights)   <span class="strikethrough">5320</span> <br>
-                       Room Price (1 room x 3 nights)  <span class="roomPrice">  {{rooms[i].price}}</span>
-                        Booking fees <span class="bookingFee">FREE</span>
-                        <hr>
-                       
-                        Price<span class="actualPrice">{{rooms[i].price}}</span>
-                      
-                   
-                      </div>
-                      <mat-card-actions>
-                        <button class="viewButton" mat-button style="background-color: rgb(0, 0, 0); color:white;font-family: Georgia, Times New Roman, Times, serif;">Book Now</button>
-                      </mat-card-actions>
-                            </div>
+          <div class="row">
+            <div class="col-5">
+              <img
+                class="example-header-image"
+                mat-card-image
+                src="{{ rooms[i].image }}"
+                alt="roomImage"
+              />
+            </div>
+            <div class="col-3">
+              <div class="row">
+                <div class="amenities">
+                  <h3 class="includes">Your price includes:</h3>
+                  <ul class="list-unstyled">
+                    <li>
+                      <i class="fa-solid fa-wifi me-2"></i>
+                      Wifi
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-person-shelter me-2"></i>
+                      Balcony
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-water-ladder me-2"></i>
+                      Pool View
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-tv me-2"></i>
+                      Tv
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-shower me-2"></i>
+                      Shower
+                    </li>
+                  </ul>
                 </div>
-            
-            
-            
-            
-            
-            
-<!--                 
+              </div>
+
+              <div>
+                <h3 class="sleeps">
+                  Guests:
+                  <h2>
+                    <i class="fa-solid fa-people-group"></i>
+                    {{ rooms[i].capacity }}
+                  </h2>
+                </h3>
+              </div>
+            </div>
+            <div class="col-4">
+              <span class="welcomeSpan">
+                Well done! You're getting this property's lowest price!</span
+              >
+              <br />
+              <br />
+
+              <div class="price">
+                Original Price (1 room x 3 nights)
+                <span class="strikethrough">5320</span> <br />
+                Room Price (1 room x 3 nights)
+                <span class="roomPrice"> {{ rooms[i].price }}</span> Booking
+                fees <span class="bookingFee">FREE</span>
+                <hr />
+
+                Price<span class="actualPrice">{{ rooms[i].price }}</span>
+              </div>
+              <mat-card-actions>
+
+               
+
+                <button  [routerLink]="['/confirmbooking/'+rooms[i]._id]" (click)="onClick(rooms[i]._id)"
+                class="viewButton"
+                mat-button
+                style="
+                  background-color: rgb(0, 0, 0);
+                  color: white;
+                  font-family: Georgia, Times New Roman, Times, serif;">
+                Book Now
+              </button>
+
+                <!-- <button *ngIf="isLoggedIn; else elseBlock"
+                  class="viewButton"
+                  mat-button
+                  style="
+                    background-color: rgb(0, 0, 0);
+                    color: white;
+                    font-family: Georgia, Times New Roman, Times, serif;">
+                  Book Now
+                </button> -->
+
+
+                <!-- <ng-template #elseBlock>
+  
+                 
+                <button (click)="openDialog()"
+                class="viewButton"
+                mat-button
+                style="
+                  background-color: rgb(212, 30, 30);
+                  color: white;
+                  font-family: Georgia, Times New Roman, Times, serif;">
+                Login and Book Now
+              </button>
+                
+                
+                </ng-template> -->
+              </mat-card-actions>
+            </div>
+          </div>
+
+          <!--                 
                   <mat-card-content>
                     <p style="font-family: Georgia, Times New Roman, Times, serif;font-weight: 300;">
                       {{rooms[i].address}}
                     </p>
                   </mat-card-content> -->
-                
-                </mat-card>
-              <!-- </mat-grid-tile> -->
-              <!-- </a> -->
-              
-              </div>
-            </div>
-          </div>
+        </mat-card>
+        <!-- </mat-grid-tile> -->
+        <!-- </a> -->
+      </div>
+    </div>
+  </div>
 </div>
 
 
-
-
-
-
 <!-- <mat-grid-list cols="1"  rowHeight="190px"  > -->
-  
-  <!-- </mat-grid-list>  -->
 
+<!-- </mat-grid-list>  -->
 
-  <!-- <mat-card class="example-card">
+<!-- <mat-card class="example-card">
 
 
     <mat-card-header >
         <mat-card-title style="font-family: Georgia, Times New Roman, Times, serif;">{{rooms[i].roomType}}</mat-card-title>
       </mat-card-header>
   </mat-card> -->
-
 
 <!-- 
   <div class="row">
