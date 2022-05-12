@@ -25,41 +25,43 @@ export class SignupComponent implements OnInit {
   show!: boolean;
   
   onSubmit() {
+  
+    // if (this.signupForm.invalid) {
+    //   return;
+    // }
 
-    if (this.signupForm.invalid) {
-      return;
-    }
 
-
-    console.log(this.signupForm.controls['email'].value);
+    console.log("Hello"+this.signupForm.controls['email'].value);
 
     this.userService.signUpUser(this.signupForm.controls['username'].value,this.signupForm.controls['email'].value, this.signupForm.controls['password'].value)
-    .subscribe({
+    .subscribe(
+      
+    //   {
+     
 
-
-      next: (data) => {
-        console.log(data);
-        this.msg = data.message; 
-        this.notifyService.showSuccess(this.msg,"Login to continue!");
-        this.route.navigate(['/login']);
-        this.signupForm.reset();
+    //   next: (data) => {
+    //     console.log(data);
+        // this.msg = data.message; 
+        // this.notifyService.showSuccess(this.msg,"Login to continue!");
+        // this.route.navigate(['/login']);
+        // this.signupForm.reset();
        
-      },
+    //   },
 
-      error: (err) => {
-        console.log(err);
-        this.msg = JSON.parse(JSON.stringify(err)).error; 
-        this.notifyService.showError(this.msg,"");
+    //   error: (err) => {
+    //     console.log(err);
+    //     this.msg = JSON.parse(JSON.stringify(err)).error; 
+    //     this.notifyService.showError(this.msg,"");
    
    
-      },
+    //   },
 
    
 
 
 
 
-    }
+    // }
 
     //   data=>{
     //   console.log(data);
@@ -68,7 +70,24 @@ export class SignupComponent implements OnInit {
     //   console.log(err);
     //   this.errorMessage=err;
     // }
+(response:any) => {
 
+  this.msg = response.message; 
+
+  if(this.msg==="Registered Successfully"){
+    this.notifyService.showSuccess(this.msg,"Login to continue!");
+    this.route.navigate(['/']);
+    this.signupForm.reset();
+  
+
+
+  }
+  else{
+
+    this.notifyService.showError(this.msg,"");
+  }
+
+}
 
 
 

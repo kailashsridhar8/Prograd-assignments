@@ -70,14 +70,3 @@ exports.getRoomDetailsById = function (req, res) {
 
 
 
-exports.getAllRooms = function (req, res) {
-  roomModel
-    .find()
-    .then((result) => {
-    
-      res.send(result);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
-};

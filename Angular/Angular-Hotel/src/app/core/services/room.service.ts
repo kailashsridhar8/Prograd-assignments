@@ -10,7 +10,8 @@ export class RoomService {
 
 
   getRoomsByHotel(id:any):Observable<any>{
-    return this.http.post("http://127.0.0.1:8000/hotel/getRoomsByHotel",{id:id});
+
+    return this.http.post("http://127.0.0.1:8000/hotel/getRoomsByHotel",{id:id ,responseType: 'text'});
   }
 
   getRoomDetailsById(id:any):Observable<any>{

@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
 
+import { AngularmaterialModule } from './modules/angularmaterial/angularmaterial.module';
+
 
 
 @NgModule({
@@ -12,7 +14,7 @@ import { AppRoutingModule } from '../app-routing.module';
     FooterComponent
   ],
   imports: [
-    CommonModule,AppRoutingModule
+    CommonModule,AppRoutingModule,AngularmaterialModule
   ],
   exports:[
     HeaderComponent,

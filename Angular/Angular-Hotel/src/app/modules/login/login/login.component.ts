@@ -19,50 +19,140 @@ export class LoginComponent implements OnInit {
   hide:boolean = true;
 //user:any = {}; 
   message!:any;
-
+  exception:string=""
 
   loginForm: FormGroup;
 
 
-  onSubmit() {
+  // onSubmit() {
 
-    if (this.loginForm.invalid) {
-      return;
-    }
+  //   if (this.loginForm.invalid) {
+  //     return;
+  //   }
     
-    console.log(this.loginForm.controls['email'].value);
-    this.authService.loginUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
-    .subscribe(
-      {
+  //   console.log(this.loginForm.controls['email'].value);
+  //   this.authService.loginUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
+  //   .subscribe(
+  //     {
 
 
-        next: (data) => {
-          localStorage.setItem('user_id', data._id);
-          this.message = data.msg; 
-         // console.log("subscribed login data"+data.token);
+  //       next: (data) => {
+  //         localStorage.setItem('user_id', data._id);
+  //         this.message = data.msg; 
+  //        // console.log("subscribed login data"+data.token);
         
-          this.notifyService.showSuccess(this.message,"");
-          this.route.navigate(['/']);
-          this.loginForm.reset();
-        },
+  //         this.notifyService.showSuccess(this.message,"");
+  //         this.route.navigate(['/']);
+  //         this.loginForm.reset();
+  //       },
   
-        error: (err) => {
-          console.log("Error"+err);
-          this.message = JSON.parse(JSON.stringify(err)).error; 
-          this.notifyService.showError(this.message,"");
+  //       error: (err) => {
+  //         console.log("Error"+err);
+  //         this.message = JSON.parse(JSON.stringify(err)).error; 
+  //         this.notifyService.showError(this.message,"");
      
      
-        },
+  //       },
   
        
   
   
   
   
-      }
+      // }
     
+    
+  //   )
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  onSubmit() {
+  
+    
+    this.authService.loginUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value).subscribe(
+
+
+      
+        (response:any)=>{
+      
+
+          this.message = response.msg; 
+
+          if(this.message==="Logged In"){
+            this.notifyService.showSuccess(this.message,"");
+          
+            let token=response.token
+            console.log("Token : "+response);
+             let role=response.role
+             console.log("role"+role);
+            localStorage.setItem("TOKEN",token);
+             localStorage.setItem("Login_Status",role)
+            // var currentDate = new Date();
+            // var futureDate = new Date(currentDate.getTime() + 30*60000);
+            // localStorage.setItem("Expiration_Time",""+futureDate.getTime())
+            this.authService.Login()
+            this.route.navigate(['/home'],{ replaceUrl: true });
+            this.loginForm.reset();
+
+
+
+          }
+          else{
+            this.notifyService.showError(this.message,"");
+          }
+         // console.log("subscribed login data"+data.token);
+        // console.log("Messageeee"+response.msg);
+       
+        
+        }
+        // ,
+        // error:(error)=>{
+        //   console.log("Error"+error);
+        //   this.message = JSON.parse(JSON.stringify(error)).error; 
+        //   this.notifyService.showError(this.message,"");
+     
+        // }
+
+      
+//       (response:any)=>{
+      
+//         console.log(typeof response);
+//       if(response==="UNF"){
+//         this.exception="No user found with these credentials try again (or) Please Login..!"
+//       }
+//       else if(response=="WP"){
+//         this.exception="Incorrect Password. Try again..!"
+//       }
+//       else{
+      
+//         this.exception=""
+//         // let res=JSON.parse(response)
+// let res=response;
+        // let token=res.token
+        // // let role=res.role
+        // localStorage.setItem("TOKEN",token);
+        // // localStorage.setItem("Login_Status",role)
+        // var currentDate = new Date();
+        // var futureDate = new Date(currentDate.getTime() + 30*60000);
+        // localStorage.setItem("Expiration_Time",""+futureDate.getTime())
+        // this.authService.Login()
+        // this.route.navigate(['/'],{ replaceUrl: true });
+//       }
+//     }
     
     )
+
   }
   constructor(private route: Router,private authService:AuthService,private notifyService : NotificationService) {
     this.loginForm = new FormGroup({
@@ -83,6 +173,28 @@ export class LoginComponent implements OnInit {
   
   );
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   ngOnInit(): void {
 

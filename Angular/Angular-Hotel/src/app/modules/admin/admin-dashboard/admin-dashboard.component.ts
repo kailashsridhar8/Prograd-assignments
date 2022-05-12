@@ -83,6 +83,9 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // console.log( "Hello"+localStorage.getItem("Login_Status"));
+
+
     this.hotelService.getAllCities().subscribe({
       next: (data:any) => {
         this.cities=data;

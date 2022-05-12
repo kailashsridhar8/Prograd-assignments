@@ -3,6 +3,7 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { HotelService } from 'src/app/core/services/hotel.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 @Component({
@@ -50,7 +51,9 @@ const city=this.myControl.value;
           this.hotels.length + ' Hotels Available in ' + this.myControl.value
         );
       },
-      error: (data) => {},
+      error: (data) => {
+        
+      },
     });
       this.hotelService.setFromDate(this.searchForm.controls['fromDate'].value);
       this.hotelService.setToDate(this.searchForm.controls['toDate'].value);
@@ -61,7 +64,8 @@ const city=this.myControl.value;
   constructor(
     private route: Router,
     private hotelService: HotelService,
-    private notifyService: NotificationService
+    private notifyService: NotificationService,
+    private authService: AuthService
   ) {
     this.searchForm = new FormGroup({
       fromDate: new FormControl('', [Validators.required]),
@@ -99,7 +103,29 @@ const city=this.myControl.value;
       },
 
       error: (err) => {
-        console.log(err);
+        // console.log("Inside this"+err.message);
+        this.authService.getAccessToken().subscribe({next:(res:any)=>{
+         
+          localStorage.removeItem("TOKEN")
+          localStorage.removeItem("Login_Status")
+          if(res==="jwt expired"){
+            this.route.navigate(['/login'])
+            localStorage.clear()
+            this.authService.Logout()
+            this.authService.removeToken()
+            return
+          }
+          let response=JSON.parse(res)
+          let token=response.token
+          let role=response.role
+
+          localStorage.setItem("TOKEN",token);
+          localStorage.setItem("Login_Status",role);
+          console.log(" "+role);
+          
+          //this.route.navigate(['/home'])
+          window.location.reload()
+        }});
       },
     });
 

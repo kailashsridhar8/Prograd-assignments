@@ -1,16 +1,36 @@
 
-    <nav>
+    <nav class="topNav">
         <div class="logo">
            
             <a  class="logoname" href="">Happening.Inn</a>
         </div>
-        <ul class="nav-links">
-            <li><a routerLink="/" routerLinkActive>Home</a></li>
-            <li><a routerLink="/hotels">Hotels</a></li>
-            <li><a   routerLink="/login" routerLinkActive>Login/Signup</a></li>
-            
+        <ul class="nav-links" *ngIf="authService.isLoggedIn==='no'">
+        
+            <li><a   routerLink="/" routerLinkActive>Login</a></li>
+            <li><a   routerLink="/signup" routerLinkActive>New User ? Signup</a></li>
+           
            
         </ul>
+        <ul class="nav-links" *ngIf="authService.isLoggedIn==='admin'">
+            <li><a   routerLink="/admin-dashboard" routerLinkActive>Dashboard</a></li>
+            <li><button class="button" (click)="logout()">Logout</button></li>
+          
+           
+           
+        </ul>
+
+        <ul class="nav-links" *ngIf="authService.isLoggedIn==='user'">
+            <li><a routerLink="/home" routerLinkActive>Home</a></li>
+            <li><a routerLink="/bookings">Bookings</a></li>
+            <!-- <li><a   routerLink="/login" routerLinkActive>Login</a></li>
+            <li><a   routerLink="/signup" routerLinkActive>Signup</a></li> -->
+            <li><button class="button" (click)="logout()">Logout</button></li>
+    
+
+           
+        </ul>
+
+
         <div class="burger" (click)="constNavslide()">
             <div class="line1"></div>
             <div class="line2"></div>

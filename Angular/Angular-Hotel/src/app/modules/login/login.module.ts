@@ -12,18 +12,17 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatGridListModule} from '@angular/material/grid-list';
 // import { BrowserModule } from '@angular/platform-browser';
 import { LoginRoutingModule } from './login-routing.module';
-import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import { AngularmaterialModule } from 'src/app/shared/modules/angularmaterial/angularmaterial.module';
 @NgModule({
   declarations: [
-    LoginComponent,
-    DialogLoginComponent
+    LoginComponent
+ 
   ],
   imports: [
     CommonModule,AngularmaterialModule,LoginRoutingModule,MatButtonModule,MatGridListModule,MatDividerModule,MatCardModule,MatIconModule,MatToolbarModule,MatFormFieldModule,MatInputModule,FormsModule,ReactiveFormsModule
   ],
   exports:[
-    LoginComponent,DialogLoginComponent
+    LoginComponent
   ]
 })
 export class LoginModule { }

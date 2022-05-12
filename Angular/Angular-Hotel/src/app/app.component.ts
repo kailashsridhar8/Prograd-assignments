@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular-Hotel';
+  ngOnInit(): void {
+    localStorage.setItem("IS_LOGGEDIN","NO")
+  }
 }

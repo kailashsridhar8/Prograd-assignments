@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { HotelService } from 'src/app/core/services/hotel.service';
 import { RoomService } from 'src/app/core/services/room.service';
-import { DialogLoginComponent } from '../../login/dialog-login/dialog-login.component';
+
 
 
 
@@ -93,13 +93,7 @@ export class RoomComponent implements OnInit {
     ) 
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogLoginComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+ 
   onClick(roomId:Number){
       alert("Room Booked Sucessfully");
   }

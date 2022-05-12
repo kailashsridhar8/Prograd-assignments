@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 declare function navSlide(): void;
 @Component({
   selector: 'app-header',
@@ -7,7 +9,15 @@ declare function navSlide(): void;
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService,private route: Router) { }
+
+  logout(){
+    this.authService.Logout()
+    localStorage.clear()
+    this.route.navigate(['/'])
+  }
+
+
   constNavslide(){
     console.log('navslide');
     const burger=document.querySelector('.burger');

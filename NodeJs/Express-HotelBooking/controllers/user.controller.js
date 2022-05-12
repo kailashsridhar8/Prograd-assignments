@@ -29,7 +29,7 @@ passport.use(
 
 
              if (userObject) {
-               console.log("Im here1");
+             
                 return done(null, false, { message: 'Email Error' });
               }
 
@@ -38,7 +38,7 @@ passport.use(
           
 
            
-          return done(null, user,{ message: "Hello user from sadadsasd" });
+          return done(null, user,{ message: "Hello user" });
         } catch (error) {
 
           done(error);
@@ -70,7 +70,7 @@ passport.use(
           const validate = await user.isValidPassword(password);
   
           if (!validate) {
-            console.log(done("Hey"+null, false, { message: 'Wrong Password' }));
+      
             return done(null, false, { message: 'Wrong Password' });
 
           }
@@ -95,7 +95,7 @@ passport.use(
         try {
           return done(null, token.user);
         } catch (error) {
-          console.log("error vroo"+done(error));
+          console.log("error "+done(error));
           done(error);
           
         }

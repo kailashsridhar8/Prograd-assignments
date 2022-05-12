@@ -1,11 +1,12 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class HotelService {
-
+  token!:string
+  headers!:HttpHeaders
   fromDate: any;
   toDate: any;
   constructor(private http: HttpClient) { }
@@ -16,11 +17,17 @@ export class HotelService {
   }
 
   getAllHotels():Observable<any>{
-    return this.http.get("http://127.0.0.1:8000/hotel/getAllHotels");
+    this.token=localStorage.getItem("TOKEN")||''
+     this.headers = new HttpHeaders({
+      'Authorization': this.token });
+    return this.http.get("http://127.0.0.1:8000/hotel/getAllHotels",{headers:this.headers});
   }
 
   getAllRooms():Observable<any>{
-    return this.http.get("http://127.0.0.1:8000/hotel/getAllRooms");
+    this.token=localStorage.getItem("TOKEN")||''
+     this.headers = new HttpHeaders({
+      'Authorization': this.token });
+    return this.http.get("http://127.0.0.1:8000/hotel/getAllRooms",{headers:this.headers});
   }
 
   getHotelsByCity(city: string,noOfDays: Number){

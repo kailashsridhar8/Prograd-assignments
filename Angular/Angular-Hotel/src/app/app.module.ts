@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
-
+import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { LoginModule } from './modules/login/login.module';
 import { CoreModule } from './core/core.module';
@@ -20,7 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SignupModule } from './modules/signup/signup.module';
 import { HomeModule } from './modules/home/home.module';
 import { RoomModule } from './modules/room/room.module';
-
+import { HttpErrorInterceptor } from './http-error.interceptor';
 import { AdminModule } from './modules/admin/admin.module';
 
 @NgModule({
@@ -28,11 +28,16 @@ import { AdminModule } from './modules/admin/admin.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,SharedModule,HomeModule,ToastrModule.forRoot(),
+    BrowserModule,SharedModule,MatButtonModule,HomeModule,ToastrModule.forRoot(),
     AppRoutingModule,RoomModule,AdminModule,
     BrowserAnimationsModule,MatFormFieldModule,LoginModule,HttpClientModule,CoreModule,SignupModule,FormsModule,ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorInterceptor,
+    multi: true
+
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
