@@ -22,6 +22,7 @@ import { HomeModule } from './modules/home/home.module';
 import { RoomModule } from './modules/room/room.module';
 import { HttpErrorInterceptor } from './http-error.interceptor';
 import { AdminModule } from './modules/admin/admin.module';
+import { BookingModule } from './modules/booking/booking.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { AdminModule } from './modules/admin/admin.module';
   ],
   imports: [
     BrowserModule,SharedModule,MatButtonModule,HomeModule,ToastrModule.forRoot(),
-    AppRoutingModule,RoomModule,AdminModule,
+    AppRoutingModule,RoomModule,AdminModule,BookingModule,
     BrowserAnimationsModule,MatFormFieldModule,LoginModule,HttpClientModule,CoreModule,SignupModule,FormsModule,ReactiveFormsModule
   ],
   providers: [{

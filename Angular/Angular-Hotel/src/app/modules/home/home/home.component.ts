@@ -14,6 +14,8 @@ import { NotificationService } from 'src/app/core/services/notification.service'
 export class HomeComponent implements OnInit {
   myControl = new FormControl();
   fromDateControl = new FormControl();
+  fromDate:any;
+  toDate:any;
   searchForm: FormGroup;
   options: string[] = [];
   rough: any = {};
@@ -28,6 +30,10 @@ export class HomeComponent implements OnInit {
     }
 
 const city=this.myControl.value;
+
+
+this.fromDate=this.searchForm.controls['fromDate'].value;
+this.toDate=this.searchForm.controls['toDate'].value;
     const from = this.searchForm.controls['fromDate'].value.getTime();
 
     const to = this.searchForm.controls['toDate'].value.getTime();
@@ -35,7 +41,7 @@ const city=this.myControl.value;
     const diff = to - from;
     const oneDay = 1000 * 60 * 60 * 24;
     const days = diff / oneDay;
-
+    this.noOfDays=days;
     var event = new Date(this.searchForm.controls['fromDate'].value);
     let date = JSON.stringify(event);
     date = date.slice(1, 11);
@@ -107,7 +113,7 @@ const city=this.myControl.value;
         this.authService.getAccessToken().subscribe({next:(res:any)=>{
          
           localStorage.removeItem("TOKEN")
-          localStorage.removeItem("Login_Status")
+          // localStorage.removeItem("Login_Status")
           if(res==="jwt expired"){
             this.route.navigate(['/login'])
             localStorage.clear()
@@ -120,7 +126,7 @@ const city=this.myControl.value;
           let role=response.role
 
           localStorage.setItem("TOKEN",token);
-          localStorage.setItem("Login_Status",role);
+          // localStorage.setItem("Login_Status",role);
           console.log(" "+role);
           
           //this.route.navigate(['/home'])

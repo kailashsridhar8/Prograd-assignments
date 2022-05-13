@@ -1,3 +1,4 @@
+const { json } = require("express/lib/response");
 const mongoose = require("mongoose");
 const roomSchema = mongoose.Schema({
  
@@ -24,6 +25,11 @@ const roomSchema = mongoose.Schema({
       type: String,
       
     },
+    bookings: {
+
+      type:[Object]
+
+    }
     
   });
 

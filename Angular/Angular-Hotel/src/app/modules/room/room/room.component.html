@@ -169,20 +169,20 @@
               <br />
 
               <div class="price">
-                Original Price (1 room x 3 nights)
-                <span class="strikethrough">5320</span> <br />
-                Room Price (1 room x 3 nights)
-                <span class="roomPrice"> {{ rooms[i].price }}</span> Booking
+                Original Price (1 room x {{noOfDays}} nights)
+                <span class="strikethrough">{{(noOfDays*rooms[i].price)+2500}}</span> <br />
+                Room Price (1 room x {{noOfDays}} nights)
+                <span class="roomPrice"> {{ noOfDays*rooms[i].price }}</span> Booking
                 fees <span class="bookingFee">FREE</span>
                 <hr />
 
-                Price<span class="actualPrice">{{ rooms[i].price }}</span>
+                Price<span class="actualPrice">{{ noOfDays*rooms[i].price }}</span>
               </div>
               <mat-card-actions>
 
                
 
-                <button  [routerLink]="['/confirmbooking/'+rooms[i]._id]" (click)="onClick(rooms[i]._id)"
+                <button  [routerLink]="['/bookings']" [queryParams]="{hotel_id: hotel._id,fromDate: fromDate, toDate: toDate}" (click)="onClick(rooms[i]._id,rooms[i].roomtype)"
                 class="viewButton"
                 mat-button
                 style="

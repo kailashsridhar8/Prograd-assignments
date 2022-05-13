@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
 
   constructor() { }
-
+  hotels:any[] = [1,2,3,4]
   ngOnInit(): void {
 
 

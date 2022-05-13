@@ -70,3 +70,76 @@ exports.getRoomDetailsById = function (req, res) {
 
 
 
+
+exports.bookRoom = function (req, res) {
+  const booking = new bookingModel({
+    room_id:req.body.room_id,
+    roomtype: req.body.room_type,
+
+    hotel_name: req.body.hotel_name,
+
+    fromDate: req.body.fromDate,
+    toDate: req.body.toDate,
+    price: req.body.price,
+ 
+  })
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+};
+
+
+// exports.addBookingToRoom=function(req, res) {
+
+  
+//   roomModel.findById(req.body.room_id).then((room) => {
+//     room.updateOne(
+
+//       {  bookings: req.body.bookings},
+//       {multi:true}, 
+//       function(err, numberAffected){  
+//         if(err) {
+//           console.log("err");
+//         }
+//         else
+//         {  console.log(numberAffected);
+//             res.send(numberAffected);
+//         }
+//       }
+//     )
+//   }).catch(function(err){
+//     console.log("err");
+//     res.send(err);
+//   })
+  
+
+
+// }
+
+
+
+
+exports.addBookingToRoom = function (req, res) {
+ 
+  roomModel
+     .findOne({ _id: req.body.room_id }, function (err, room) {
+           
+
+           room.bookings.push(req.body.bookings);
+
+           room.save();
+        
+     })
+     .then((data) => {
+       res.json(data);
+       console.log("Success" + data);
+     })
+ 
+     .catch((err) => {
+       console.log("Error");
+     });
+ };

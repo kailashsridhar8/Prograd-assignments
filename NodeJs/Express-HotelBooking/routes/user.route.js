@@ -2,6 +2,8 @@ const express=require('express');
 const router= express.Router();
 const passport = require('passport');
 const userController = require('../controllers/user.controller');
+const hotelController=require('../controllers/hotel.controller');
+const roomController=require('../controllers/room.controller');
 const jwt = require('jsonwebtoken');
 const refreshSchema=require('../models/refreshToken.js')
 require('dotenv').config()
@@ -11,9 +13,10 @@ require('dotenv').config()
 // router.post('/register',userController.registerUser);
 // router.post('/login',userController.loginUser);
 
+router.post('/bookRoom',roomController.bookRoom);
 
 
-
+router.post('/addBookingToRoom', roomController.addBookingToRoom);
 router.post(
     '/signup',
     async (req, res, next) => {
@@ -136,9 +139,9 @@ router.post(
       if(refreshObject==null){
         return res.send("Refresh JWT Expired")
       }
-      console.log("Here inside Refresh"+refreshObject.user._id);
-      let token="Bearer "+generateAccessToken(refreshObject.user)+" "+ref_Token
-    
+   
+      let token="Bearer "+generateAccessToken(refreshObject.user)+" "+ref_Token;
+      console.log("Here inside Refresh"+refreshObject.user.role);
       return res.send({"token":token,"role":refreshObject.user.role})
     })
   })
@@ -155,7 +158,7 @@ router.post(
 
 
   function generateAccessToken(body){
-    return jwt.sign({ user: body }, process.env.TOP_SECRET,{ expiresIn: '20s' })
+    return jwt.sign({ user: body }, process.env.TOP_SECRET,{ expiresIn: '30m' })
   }
 
 

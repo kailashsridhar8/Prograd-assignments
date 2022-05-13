@@ -60,7 +60,7 @@
   max-height: 600px;
 }
 .example-card .mat-card{
-width: 300px!important;
+width: 100%!important;
 
 }
 .example-header-image{

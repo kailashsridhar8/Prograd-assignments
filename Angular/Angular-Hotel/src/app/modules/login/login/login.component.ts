@@ -102,9 +102,17 @@ export class LoginComponent implements OnInit {
             // var futureDate = new Date(currentDate.getTime() + 30*60000);
             // localStorage.setItem("Expiration_Time",""+futureDate.getTime())
             this.authService.Login()
-            this.route.navigate(['/home'],{ replaceUrl: true });
-            this.loginForm.reset();
 
+            if(role==="admin"){
+              this.route.navigate(['/admin-dashboard'],{ replaceUrl: true });
+              this.loginForm.reset();
+  
+            }
+            else{
+              this.route.navigate(['/home'],{ replaceUrl: true });
+              this.loginForm.reset();
+            }
+           
 
 
           }

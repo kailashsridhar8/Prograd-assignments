@@ -1,10 +1,21 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
+
+//   shareDataSubject = new Subject<any>(); //Decalring new RxJs Subject
+ 
+//   sendDataToOtherComponent(userInputs:any){
+//    this.shareDataSubject.next(userInputs);
+// }
+
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +33,8 @@ export class RoomService {
    
   //   return this.http.post("http://127.0.0.1:8000/hotel/getHotelsByCity",{city:city,noOfDays:noOfDays});
   // }
-
+  bookRoom(room_id:string,roomtype:string,hotel_name:string,fromDate:any,toDate:any,price:number):Observable<any>{
+    return this.http.post("http://127.0.0.1:8000/user/bookRoom",{room_id:room_id,roomtype:roomtype,hotel_name:hotel_name,fromDate:fromDate,toDate:toDate,price:price })
+  }
 
 }

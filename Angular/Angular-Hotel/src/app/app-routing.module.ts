@@ -29,7 +29,11 @@ const routes: Routes = [
   {path:'admin-dashboard',
    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule), canActivate:[AdminAuthGuard]
 
+},
+{path:'bookings',
+loadChildren: () => import('./modules/booking/booking.module').then(m => m.BookingModule), canActivate:[UserAuthGuard]
 }
+
 ];
 
 @NgModule({
