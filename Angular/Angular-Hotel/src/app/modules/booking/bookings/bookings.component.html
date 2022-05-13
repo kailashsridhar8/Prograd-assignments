@@ -1,1 +1,63 @@
-booking works!
+
+
+<div class="container" >
+
+    <div class="card-deck row">
+    
+      <div class="col-xs-12 col-sm-12 col-md-12" *ngFor="let booking of bookings; let i = index">
+    
+      <div class="card">
+    
+      
+     
+    
+        
+        <div class="card-body">
+    
+        <h2 class="paymentSucessfull"><i class="fa fa-check" style="background-color: green; border-radius: 45%;" aria-hidden="true"></i> Payment Successfull ! </h2> 
+         
+        <br>
+              <div class="row">
+           
+                <div class="col-6" >
+                  <ul class="list-unstyled">
+                    <li>Booking ID : <span>{{(bookings[i]._id).slice(17,24)}}</span> </li>
+                    <li>Hotel Name :  <span>{{bookings[i].hotel_name}}</span></li>
+                    <li>Room ID : <span>{{(bookings[i].room_id).slice(17,24)}}</span></li>   
+                    <li>Room Type : <span>{{bookings[i].room_type}}</span></li>
+                 
+                
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="list-unstyled">
+                    <li>Check-In Date : <span>{{(bookings[i].fromDate).slice(0,10)}}</span></li>
+                    <li>Check-Out Date :<span>{{(bookings[i].toDate).slice(0,10)}}</span></li>
+                    <li>Amount Paid : <span>{{bookings[i].price}}</span></li>
+                    <li>Payment Type : <span>Card</span></li>
+                  </ul>
+                </div>
+              
+              </div>
+    
+        </div>
+    
+      </div>
+
+      </div>
+    
+   
+    
+    
+  
+     
+  
+  
+    
+    
+    
+      
+    </div>
+  
+      
+    </div>

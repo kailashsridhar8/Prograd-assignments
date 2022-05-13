@@ -53,8 +53,8 @@ this.toDate=this.searchForm.controls['toDate'].value;
         this.hotels = data;
 
         this.notifyService.showInfo(
-          'For ' + days + ' Nights',
-          this.hotels.length + ' Hotels Available in ' + this.myControl.value
+         
+          this.hotels.length + ' Hotels Available in ' + this.myControl.value,""
         );
       },
       error: (data) => {

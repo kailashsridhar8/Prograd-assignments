@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
     // }
 
 
-    console.log("Hello"+this.signupForm.controls['email'].value);
+    console.log("Hello"+this.signupForm.controls['phone'].value);
 
     this.userService.signUpUser(this.signupForm.controls['username'].value,this.signupForm.controls['email'].value, this.signupForm.controls['password'].value)
     .subscribe(
@@ -84,7 +84,7 @@ export class SignupComponent implements OnInit {
   }
   else{
 
-    this.notifyService.showError(this.msg,"");
+    this.notifyService.showError(response.message,"");
   }
 
 }

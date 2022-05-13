@@ -29,33 +29,33 @@ export class DialogSignupComponent implements OnInit {
 
     console.log(this.signupForm.controls['email'].value);
 
-    this.userService.signUpUser(this.signupForm.controls['username'].value,this.signupForm.controls['email'].value, this.signupForm.controls['password'].value)
-    .subscribe({
+    // this.userService.signUpUser(this.signupForm.controls['username'].value,this.signupForm.controls['email'].value, this.signupForm.controls['password'].value)
+    // .subscribe({
 
 
-      next: (data) => {
-        console.log(data);
-        this.msg = data.message; 
-        this.notifyService.showSuccess(this.msg,"Login to continue!");
-        this.route.navigate(['/login']);
-        this.signupForm.reset();
+    //   next: (data) => {
+    //     console.log(data);
+    //     this.msg = data.message; 
+    //     this.notifyService.showSuccess(this.msg,"Login to continue!");
+    //     this.route.navigate(['/login']);
+    //     this.signupForm.reset();
        
-      },
+    //   },
 
-      error: (err) => {
-        console.log(err);
-        this.msg = JSON.parse(JSON.stringify(err)).error; 
-        this.notifyService.showError(this.msg,"");
+    //   error: (err) => {
+    //     console.log(err);
+    //     this.msg = JSON.parse(JSON.stringify(err)).error; 
+    //     this.notifyService.showError(this.msg,"");
    
    
-      },
+    //   },
 
    
 
 
 
 
-    }
+    // }
 
     //   data=>{
     //   console.log(data);
@@ -68,7 +68,7 @@ export class DialogSignupComponent implements OnInit {
 
 
 
-    )
+    // )
 
 
   }

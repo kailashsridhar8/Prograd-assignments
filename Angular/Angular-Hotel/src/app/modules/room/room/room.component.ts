@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HotelService } from 'src/app/core/services/hotel.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 import { RoomService } from 'src/app/core/services/room.service';
+import { DialoguebookingComponent } from '../../booking/dialoguebooking/dialoguebooking.component';
 
 
 
@@ -14,7 +16,7 @@ import { RoomService } from 'src/app/core/services/room.service';
 })
 export class RoomComponent implements OnInit {
 
-  constructor(public dialog: MatDialog,private activatedRoute: ActivatedRoute,private roomService:RoomService,private hotelService:HotelService) { }
+  constructor(private router: Router,public dialog: MatDialog,private activatedRoute: ActivatedRoute,private roomService:RoomService,private hotelService:HotelService,private notificationService:NotificationService) { }
   rooms:any=[];
   hotel:any={};
   originalPrice:number;
@@ -39,7 +41,7 @@ this.activatedRoute.queryParams.subscribe(params => {
         this.fromDate=params['fromDate'];
         this.toDate=params['toDate'];
         this.noOfDays=params['noOfDays'];
-        console.log("noddd"+this.noOfDays)
+        console.log("noddd"+this.fromDate)
         if(this.noOfDays==null){
           this.noOfDays=1;
         }
@@ -84,32 +86,34 @@ this.activatedRoute.queryParams.subscribe(params => {
             next: (data)=>{
 
           
-            // this.index=this.index+1;
+             this.index=this.index+1;
           for(let bookings of data.bookings){
-            console.log(bookings.fromDate);
-            console.log(bookings.toDate);
-            var bookedFrom=new Date(bookings.fromDate);
-            var bookedTo=new Date(bookings.toDate);
-            
-            if(this.dateRangeOverlaps(bookedFrom.getTime(), bookedTo.getTime(),new Date(this.fromDate).getTime(),new Date(this.toDate).getTime())){
+          
+          
+            var bookedFrom=new Date(bookings.fromDate).getTime();
+            var bookedTo=new Date(bookings.toDate).getTime();
+           
+
+         
+            if(this.dateRangeOverlaps(bookedFrom, bookedTo,new Date(this.fromDate).getTime(),new Date(this.toDate).getTime())){
               console.log(" overlapping!");
               this.flag=1;
             }
+
+           
             else{
               console.log("Not overlapping!");
             }
+         
 
           }
-
-            if(this.flag==0){
+     
+            if(this.flag==0||data.bookings.length==0){
               this.rooms.push(data);
 
             }
            
 
-
-              
-              
              
             },
             error: (data)=>{
@@ -132,8 +136,50 @@ this.activatedRoute.queryParams.subscribe(params => {
   }
 
  
-  onClick(roomId:Number,roomType:String){
-        // this.roomService.bookRoom(roomId,roomType,)
+  onClick(room_id:string,room_type:string,totalPrice:number){
+
+
+    if(this.fromDate==null||this.toDate==null){
+      this.notificationService.showWarning("Enter Dates of Stay","")
+      this.router.navigate(['/home']);
+      return;
+
+    }
+
+    var user_id=localStorage.getItem('user_id');
+
+         this.roomService.bookRoom(room_id,room_type,this.hotel.name,this.fromDate,this.toDate,totalPrice,user_id).subscribe({
+           next: function(data:any){
+              console.log("Booking Data"+data);
+           },
+           error: function(err){
+             console.log("Booking Data"+err);
+           }
+         });
+
+        var bookings={
+            fromDate:this.fromDate,
+            toDate:this.toDate,
+            user_id:localStorage.getItem('user_id'),
+         }
+         this.roomService.addBookingToRoom(room_id,bookings).subscribe({
+           next:(data:any)=>{
+             console.log("addBookingToRoom Data"+data);
+             this.notificationService.showInfo("Sucessfully Booked in "+this.hotel.name,room_type+ " for "+this.noOfDays+" days is" );
+              this.router.navigate(['/bookings']);
+           },
+           error: function(err:any){
+             console.log("addBookingToRoom Data"+err);
+           }
+         });
+
+        //  const dialogRef = this.dialog.open(DialoguebookingComponent);
+
+    //       dialogRef.afterClosed().subscribe(result => {
+    //       console.log(`Dialog result: ${result}`);
+    // });
+
+
   }
 
 

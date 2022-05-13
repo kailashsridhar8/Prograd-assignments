@@ -1,5 +1,6 @@
 const roomModel = require("../models/room.model");
 const hotelModel = require("../models/hotel.model");
+const bookingModel=require("../models/booking.model");
 exports.addRoomToHotel = function (req, res) {
   console.log("RequestBody" + req.body.hotel_id);
   hotelModel
@@ -74,20 +75,23 @@ exports.getRoomDetailsById = function (req, res) {
 exports.bookRoom = function (req, res) {
   const booking = new bookingModel({
     room_id:req.body.room_id,
-    roomtype: req.body.room_type,
+    room_type: req.body.room_type,
 
     hotel_name: req.body.hotel_name,
 
     fromDate: req.body.fromDate,
     toDate: req.body.toDate,
     price: req.body.price,
+    user_id: req.body.user_id
  
   })
     .save()
     .then((result) => {
+      console.log("Booked Result"+result)
       res.send(result);
     })
     .catch((err) => {
+      console.log("Booked Result"+err);
       res.send(err);
     });
 };

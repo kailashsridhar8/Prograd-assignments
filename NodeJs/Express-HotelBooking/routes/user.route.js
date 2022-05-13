@@ -4,6 +4,7 @@ const passport = require('passport');
 const userController = require('../controllers/user.controller');
 const hotelController=require('../controllers/hotel.controller');
 const roomController=require('../controllers/room.controller');
+const bookingController=require('../controllers/booking.controller');
 const jwt = require('jsonwebtoken');
 const refreshSchema=require('../models/refreshToken.js')
 require('dotenv').config()
@@ -14,7 +15,7 @@ require('dotenv').config()
 // router.post('/login',userController.loginUser);
 
 router.post('/bookRoom',roomController.bookRoom);
-
+router.post('/findBookingDetailsbyUserId',bookingController.findBookingDetailsbyUserId);
 
 router.post('/addBookingToRoom', roomController.addBookingToRoom);
 router.post(
@@ -25,17 +26,27 @@ router.post(
         async (err, user, info) => {
           try {
             if (!user) {
-               res.status(400).send("Email already registered");  
+              console.log("Here is the pointer 1")
+              // return res.send("Email already registered");  
+              return res.json({
+                message: 'Email already registered',
+             
+            });
+              
             }
             else if(err){
-              res.status(400).send("Error. Please try again later");  
+              console.log("Here is the pointer 2")
+              return res.json({
+                message: 'Error',
+             
+            });
             }
             else{
-               res.json({
+              return res.json({
                     message: 'Registered Successfully',
                    user: user
                 });
-                 res.json();
+                //  res.json();
             }
           } catch (error) {
             return next(error);

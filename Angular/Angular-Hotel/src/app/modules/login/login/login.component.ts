@@ -98,6 +98,7 @@ export class LoginComponent implements OnInit {
              console.log("role"+role);
             localStorage.setItem("TOKEN",token);
              localStorage.setItem("Login_Status",role)
+             localStorage.setItem("user_id",response._id);
             // var currentDate = new Date();
             // var futureDate = new Date(currentDate.getTime() + 30*60000);
             // localStorage.setItem("Expiration_Time",""+futureDate.getTime())

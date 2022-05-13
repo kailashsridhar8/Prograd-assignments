@@ -22,7 +22,7 @@
 
 
 
-<div class="row">
+<div class="row" *ngIf="rooms.length>0; else elseBlock">
   <div class="col-3">
     
     <div class="row">
@@ -181,8 +181,8 @@
               <mat-card-actions>
 
                
-
-                <button  [routerLink]="['/bookings']" [queryParams]="{hotel_id: hotel._id,fromDate: fromDate, toDate: toDate}" (click)="onClick(rooms[i]._id,rooms[i].roomtype)"
+                <!-- [routerLink]="['/bookings']" [queryParams]="{hotel_id: hotel._id,fromDate: fromDate, toDate: toDate}" -->
+                <button   (click)="onClick(rooms[i]._id,rooms[i].roomtype,noOfDays*rooms[i].price)"
                 class="viewButton"
                 mat-button
                 style="
@@ -235,6 +235,13 @@
     </div>
   </div>
 </div>
+<ng-template #elseBlock>
+  <div class="alreadyBooked" >
+    <h1>Sorry, All Rooms are already booked in {{hotel.name}} from {{fromDate}} to {{toDate}}. </h1>  
+</div>
+
+
+</ng-template>
 
 
 <!-- <mat-grid-list cols="1"  rowHeight="190px"  > -->

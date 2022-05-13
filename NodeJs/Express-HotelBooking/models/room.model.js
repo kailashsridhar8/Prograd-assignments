@@ -29,6 +29,10 @@ const roomSchema = mongoose.Schema({
 
       type:[Object]
 
+    },
+
+    hotel_id: {
+      type: String,
     }
     
   });
