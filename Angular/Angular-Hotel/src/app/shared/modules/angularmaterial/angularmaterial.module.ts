@@ -14,11 +14,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,MatDialogModule,MatAutocompleteModule,MatSelectModule,MatNativeDateModule,MatSnackBarModule,MatDatepickerModule,MatIconModule,MatFormFieldModule,MatButtonModule,MatDividerModule,MatGridListModule,MatCardModule,MatInputModule,MatToolbarModule
+    CommonModule,MatSidenavModule,MatDialogModule,MatAutocompleteModule,MatSelectModule,MatNativeDateModule,MatSnackBarModule,MatDatepickerModule,MatIconModule,MatFormFieldModule,MatButtonModule,MatDividerModule,MatGridListModule,MatCardModule,MatInputModule,MatToolbarModule
   ],
-  exports:[CommonModule,MatDialogModule,MatSelectModule,MatAutocompleteModule,MatNativeDateModule,MatIconModule,MatDatepickerModule,MatFormFieldModule,MatButtonModule,MatDividerModule,MatGridListModule,MatCardModule,MatInputModule,MatToolbarModule]
+  exports:[CommonModule,MatSidenavModule,MatDialogModule,MatSelectModule,MatAutocompleteModule,MatNativeDateModule,MatIconModule,MatDatepickerModule,MatFormFieldModule,MatButtonModule,MatDividerModule,MatGridListModule,MatCardModule,MatInputModule,MatToolbarModule]
 })
 export class AngularmaterialModule { }

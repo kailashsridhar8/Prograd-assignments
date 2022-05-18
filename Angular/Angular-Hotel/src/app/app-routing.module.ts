@@ -26,10 +26,11 @@ const routes: Routes = [
   loadChildren: () => import('./modules/room/room.module').then(m => m.RoomModule), canActivate:[UserAuthGuard]
 
 },
-  {path:'admin-dashboard',
+  {path:'admin',
    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule), canActivate:[AdminAuthGuard]
 
 },
+
 {path:'bookings',
 loadChildren: () => import('./modules/booking/booking.module').then(m => m.BookingModule), canActivate:[UserAuthGuard]
 }

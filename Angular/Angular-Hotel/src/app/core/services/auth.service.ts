@@ -20,7 +20,9 @@ export class AuthService {
   }
 
   Login(){
+
     this.isLoggedIn=localStorage.getItem("Login_Status")||"no"
+
   }
 
  

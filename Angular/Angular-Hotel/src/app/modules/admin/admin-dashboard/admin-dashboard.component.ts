@@ -38,45 +38,45 @@ export class AdminDashboardComponent implements OnInit {
     
     )
   }
-  onAddRoom(form:NgForm){
+  // onAddRoom(form:NgForm){
 
 
-    if (form.invalid) {
-      return;
-    }
+  //   if (form.invalid) {
+  //     return;
+  //   }
 
-    this.adminService.onAddRoom(form.value.roomtype,form.value.price,form.value.capacity,form.value.image,form.value.ratings).subscribe({
-      next:(data) => {
+  //   this.adminService.onAddRoom(form.value.roomtype,form.value.price,form.value.capacity,form.value.image,form.value.ratings).subscribe({
+  //     next:(data) => {
       
-        this.notificationService.showSuccess("Room Added Sucessfully!","");
-      },
-      error:(err) => {
-        console.log("Error"+err);
-        this.notificationService.showError("Room cannot be added ","");
-      }
-    }
+  //       this.notificationService.showSuccess("Room Added Sucessfully!","");
+  //     },
+  //     error:(err) => {
+  //       console.log("Error"+err);
+  //       this.notificationService.showError("Room cannot be added ","");
+  //     }
+  //   }
     
-    );
-  };
-  onAddRoomToHotel(form:NgForm){
-    if (form.invalid) {
-      return;
-    }
+  //   );
+  // };
+  // onAddRoomToHotel(form:NgForm){
+  //   if (form.invalid) {
+  //     return;
+  //   }
 
-    this.adminService.addRoomToHotel(form.value.hotelid,form.value.roomid).subscribe({
-      next:(data) => {
+  //   this.adminService.addRoomToHotel(form.value.hotelid,form.value.roomid).subscribe({
+  //     next:(data) => {
       
-        this.notificationService.showSuccess("Room Added Sucessfully to Hotel!","");
-      },
-      error:(err) => {
+  //       this.notificationService.showSuccess("Room Added Sucessfully to Hotel!","");
+  //     },
+  //     error:(err) => {
      
-        this.notificationService.showError("Room cannot be added ","");
-      }
-    }
+  //       this.notificationService.showError("Room cannot be added ","");
+  //     }
+  //   }
     
-    );
+  //   );
 
-  }
+  // }
 
 
   constructor(private adminService:AdminService,private hotelService:HotelService,private notificationService:NotificationService) { }

@@ -1,0 +1,134 @@
+
+
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Edit Hotels</mat-card-title>
+    </mat-card-header>
+    <form  (submit)="onUpdateHotel(postForm)" #postForm="ngForm">
+      <mat-form-field>
+        <input
+          matInput
+
+          name="hotel_name"
+          [(ngModel)]="hap_hotel_name"
+          required
+
+          placeholder="Hotel Name"
+          #hotel_name="ngModel" >
+
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+
+          name="address"
+          [(ngModel)]="hap_address"
+          required
+
+          placeholder="Hotel Address"
+          #address="ngModel">
+
+      </mat-form-field>
+     
+
+      
+  <mat-form-field >
+    <mat-label>City</mat-label>
+    <mat-select matInput
+
+    name="city"
+    [(ngModel)]="hap_city"
+    required
+
+    placeholder="City"
+    #city="ngModel">
+      <mat-option *ngFor="let t of cities; let i = index" [value]="cities[i].name">
+        {{cities[i].name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+      <mat-form-field>
+        <input
+          matInput
+
+          name="state"
+          [(ngModel)]="hap_state"
+          required
+
+          placeholder="State"
+          #state="ngModel">
+
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          name="contact_no"
+          [(ngModel)]="hap_contact_no"
+          required
+          placeholder="Contact Number"
+          #contact_no="ngModel">
+
+      </mat-form-field>
+
+
+    <mat-form-field>
+        <input
+          matInput
+
+          name="image"
+          [(ngModel)]="hap_image"
+          required
+
+          placeholder="Image Url"
+          #image="ngModel">
+
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Breakfast</mat-label>
+        <mat-select matInput
+  
+        name="breakfast"
+        [(ngModel)]="hap_breakfast"
+       
+  
+        placeholder="Breakfast Included?"
+        #breakfast="ngModel">
+       
+          <mat-option *ngFor="let t of breakfasts; let i = index" [value]="breakfasts[i].name">
+            {{breakfasts[i].name}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+
+          name="offer"
+          [(ngModel)]="hap_offer"
+       
+
+          placeholder="Offers"
+          #offer="ngModel">
+
+      </mat-form-field>
+
+
+
+
+
+
+
+
+      <button class="matbutton"
+        mat-raised-button
+        color="accent"
+        type="submit">Update Hotel</button>
+    </form>
+  </mat-card>

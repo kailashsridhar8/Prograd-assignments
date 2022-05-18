@@ -105,7 +105,7 @@ export class LoginComponent implements OnInit {
             this.authService.Login()
 
             if(role==="admin"){
-              this.route.navigate(['/admin-dashboard'],{ replaceUrl: true });
+              this.route.navigate(['/admin'],{ replaceUrl: true });
               this.loginForm.reset();
   
             }

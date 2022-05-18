@@ -1,0 +1,51 @@
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>+Add Room to Hotel</mat-card-title>
+    </mat-card-header>
+    <form  (submit)="onAddRoomToHotel(hotelroomForm)" #hotelroomForm="ngForm">
+ 
+    
+      <mat-form-field >
+        <mat-label>Hotel</mat-label>
+        <mat-select matInput
+  
+        name="hotelid"
+        ngModel
+        required
+  
+        placeholder="Hotel"
+        #hotelid="ngModel">
+          <mat-option *ngFor="let t of hotels; let i = index" [value]="hotels[i]._id">
+            {{hotels[i].name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field >
+        <mat-label>Room</mat-label>
+        <mat-select matInput
+  
+        name="roomid"
+        ngModel
+        required
+  
+        placeholder="Room"
+        #roomid="ngModel">
+          <mat-option *ngFor="let t of rooms; let i = index" [value]="rooms[i]._id">
+            {{rooms[i].roomtype}} of price {{rooms[i].price}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+
+
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit">Add Room To Hotel</button>
+    </form>
+  </mat-card>

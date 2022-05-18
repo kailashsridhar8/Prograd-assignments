@@ -1,4 +1,4 @@
-
+<!-- 
     <mat-grid-list cols="3" rowHeight="2:3">
       <mat-grid-tile>
     <mat-card class="example-card">
@@ -143,7 +143,7 @@
       <mat-card-header>
         <mat-card-title>+Add Rooms</mat-card-title>
       </mat-card-header>
-      <form  (submit)="onAddRoom(roomForm)" #roomForm="ngForm">
+        <form  #roomForm="ngForm">
         <mat-form-field>
           <input
             matInput
@@ -226,8 +226,8 @@
       <mat-card-header>
         <mat-card-title>+Add Room to Hotel</mat-card-title>
       </mat-card-header>
-      <form  (submit)="onAddRoomToHotel(hotelroomForm)" #hotelroomForm="ngForm">
-   
+     
+        <form  #hotelroomForm="ngForm">
       
         <mat-form-field >
           <mat-label>Hotel</mat-label>
@@ -281,4 +281,57 @@
 
 
 </mat-grid-list> 
+ -->
 
+<!-- 
+ <div class="container" >
+
+  <div class="card-deck row">
+  
+    <div class="col-xs-12 col-sm-12 col-md-6" *ngFor="let hotel of hotels; let i = index">
+
+    <div class="card">
+  
+
+      <div class="view overlay">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+  
+  
+      <div class="card-body">
+  
+        <h4 class="card-title">1 Card title</h4>
+     
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+  
+      </div>
+  
+    </div>
+
+    </div>
+  
+ 
+  
+  
+
+   
+
+
+  
+  
+  
+    
+  </div>
+
+    
+  </div> -->
+
+
+  <a  routerLinkActive="active" routerLink="/hotel-operations">Hotel Operations</a>
+  
+  <a  routerLinkActive="active" routerLink="/room-operations">Room Operations</a>

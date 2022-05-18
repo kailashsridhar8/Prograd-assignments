@@ -78,7 +78,7 @@ this.toDate=this.searchForm.controls['toDate'].value;
       toDate: new FormControl('', [Validators.required]),
     });
 
-    console.log(this.hotelService.fromDate);
+    // console.log(this.hotelService.fromDate);
   }
 
   ngOnInit(): void {
@@ -90,30 +90,35 @@ this.toDate=this.searchForm.controls['toDate'].value;
     this.hotelService.getAllCities().subscribe({
       next: (data) => {
         for (let city of data) {
-          console.log(city.name);
+          // console.log(city.name);
           this.options.push(city.name);
         }
 
-        console.log(this.options);
+        // console.log(this.options);
       },
 
       error: (err) => {
-        console.log(err);
+        console.log("cities"+err);
       },
     });
 
     this.hotelService.getAllHotels().subscribe({
       next: (data) => {
       this.hotels=data;
-        console.log(data);
+        // console.log(data);
       },
 
       error: (err) => {
         // console.log("Inside this"+err.message);
+       console.log(err);
+
+       if(err==="IV_JWT"){
+      
+        
         this.authService.getAccessToken().subscribe({next:(res:any)=>{
          
           localStorage.removeItem("TOKEN")
-          // localStorage.removeItem("Login_Status")
+        
           if(res==="jwt expired"){
             this.route.navigate(['/login'])
             localStorage.clear()
@@ -132,6 +137,15 @@ this.toDate=this.searchForm.controls['toDate'].value;
           //this.route.navigate(['/home'])
           window.location.reload()
         }});
+
+       }
+       else{
+         this.notifyService.showError("Some error occurred","");
+       }
+       console.log("err");
+
+
+
       },
     });
 

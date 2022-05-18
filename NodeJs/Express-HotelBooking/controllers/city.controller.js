@@ -17,7 +17,7 @@ exports.getAllCities = function (req, res) {
   cityModel
     .find()
     .then((result) => {
-      console.log("cities" + result[0].name);
+      // console.log("cities" + result[0].name);
       res.send(result);
     })
     .catch((err) => {

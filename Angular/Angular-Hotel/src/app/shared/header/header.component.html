@@ -2,7 +2,7 @@
     <nav class="topNav">
         <div class="logo">
            
-            <a  class="logoname" href="/home">Happening.Inn</a>
+            <a  class="logoname" >Happening.Inn</a>
         </div>
         <ul class="nav-links" *ngIf="authService.isLoggedIn==='no'">
         
@@ -12,7 +12,14 @@
            
         </ul>
         <ul class="nav-links" *ngIf="authService.isLoggedIn==='admin'">
-            <li><a   routerLink="/admin-dashboard" routerLinkActive>Dashboard</a></li>
+
+            <li><a   routerLink="/admin" routerLinkActive>Bookings</a></li>
+            <li><a   routerLink="/admin/room-operations" routerLinkActive>Update Rooms</a></li>
+            <li><a   routerLink="/admin/hotel-operations" routerLinkActive>Update Hotels</a></li>
+            <li><a   routerLink="/admin/add-room" routerLinkActive>Add Room</a></li>
+            <li><a   routerLink="/admin/add-hotel" routerLinkActive>Add Hotel</a></li>
+            
+            <!-- <li><a   routerLink="/admin/addroomtohotel" routerLinkActive>AddRoomToHotel</a></li> -->
             <li><button class="button" (click)="logout()">Logout</button></li>
           
            
@@ -28,6 +35,7 @@
 
            
         </ul>
+   
 
 <div  (click)="constNavslide()">
     <div class="burger">

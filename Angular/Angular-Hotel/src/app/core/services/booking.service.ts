@@ -12,5 +12,8 @@ export class BookingService {
   findBookingDetailsbyUserId(user_id:string){
     return this.http.post("http://127.0.0.1:8000/user/findBookingDetailsbyUserId",{user_id:user_id })
    }
+   getAllBookings(){
+     return this.http.get("http://127.0.0.1:8000/admin/getAllBookings");
+   } 
 
 }

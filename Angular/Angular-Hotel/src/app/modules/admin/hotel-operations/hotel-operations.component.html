@@ -1,0 +1,65 @@
+
+
+<div class="container" >
+
+    <div class="card-deck row">
+    
+      <div class="col-xs-12 col-sm-12 col-md-12 mt-2" *ngFor="let hotel of hotels; let i = index">
+  
+      <div class="card">
+    
+<!--   
+        <div class="view overlay">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+     -->
+    
+        <div class="card-body">
+    
+          
+
+          <div class="row">
+            <div class="col-9">
+                
+                <h4 class="card-title">{{hotels[i].name}}</h4>
+       
+                <p class="card-text">{{hotels[i].address}}</p>
+            
+            </div>
+            <div class="col-3">
+                
+           <button type="button" [routerLink]="['update-hotel/'+hotels[i]._id]" class="btn btn-info me-2" >Edit</button>
+          
+          <button type="button" class="btn btn-danger" (click)="onClickDelete(hotels[i]._id)">Delete</button> 
+            
+            </div>
+          </div>
+  
+       
+    
+        </div>
+       
+    
+      </div>
+  
+      </div>
+    
+   
+    
+    
+  
+     
+  
+  
+    
+    
+    
+      
+    </div>
+  
+      
+    </div>
+  

@@ -1,0 +1,132 @@
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>+Add Hotels</mat-card-title>
+    </mat-card-header>
+    <form  (submit)="onAddHotel(postForm)" #postForm="ngForm">
+      <mat-form-field>
+        <input
+          matInput
+
+          name="hotel_name"
+          ngModel
+          required
+
+          placeholder="Hotel Name"
+          #hotel_name="ngModel">
+
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+
+          name="address"
+          ngModel
+          required
+
+          placeholder="Hotel Address"
+          #address="ngModel">
+
+      </mat-form-field>
+     
+
+      
+  <mat-form-field >
+    <mat-label>City</mat-label>
+    <mat-select matInput
+
+    name="city"
+    ngModel
+    required
+
+    placeholder="City"
+    #city="ngModel">
+      <mat-option *ngFor="let t of cities; let i = index" [value]="cities[i].name">
+        {{cities[i].name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+      <mat-form-field>
+        <input
+          matInput
+
+          name="state"
+          ngModel
+          required
+
+          placeholder="State"
+          #state="ngModel">
+
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          name="contact_no"
+          ngModel
+          required
+          placeholder="Contact Number"
+          #contact_no="ngModel">
+
+      </mat-form-field>
+
+
+    <mat-form-field>
+        <input
+          matInput
+
+          name="image"
+          ngModel
+          required
+
+          placeholder="Image Url"
+          #image="ngModel">
+
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Breakfast</mat-label>
+        <mat-select matInput
+  
+        name="breakfast"
+        ngModel
+       
+  
+        placeholder="Breakfast Included?"
+        #breakfast="ngModel">
+       
+          <mat-option *ngFor="let t of breakfasts; let i = index" [value]="breakfasts[i].name">
+            {{breakfasts[i].name}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+
+          name="offer"
+          ngModel
+       
+
+          placeholder="Offers"
+          #offer="ngModel">
+
+      </mat-form-field>
+
+
+
+
+
+
+
+
+      <button class="matbutton"
+        mat-raised-button
+        color="accent"
+        type="submit">Add Hotel</button>
+    </form>
+  </mat-card>

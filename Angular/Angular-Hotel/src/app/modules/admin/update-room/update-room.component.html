@@ -1,0 +1,90 @@
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Update Rooms</mat-card-title>
+    </mat-card-header>
+    <form  (submit)="onUpdateRoom(roomForm)"  #roomForm="ngForm">
+        <!-- <mat-form-field >
+            <mat-label>Hotel</mat-label>
+            <mat-select matInput
+      
+            name="hotel_id"
+            [(ngModel)]="hap_hotel_id"
+            required
+      
+            placeholder="Hotel"
+            #hotel_id="ngModel">
+              <mat-option *ngFor="let t of hotels; let i = index" [value]="hotels[i]._id">
+                {{hotels[i].name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
+      <mat-form-field>
+        <input
+          matInput
+
+          name="roomtype"
+          [(ngModel)]="hap_roomtype"
+          required
+
+          placeholder="Room Type"
+          #roomtype="ngModel">
+
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          name="price"
+          [(ngModel)]="hap_price"
+          required
+
+          placeholder="price"
+          #price="ngModel">
+
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+
+          name="ratings"
+          [(ngModel)]="hap_ratings"
+          required
+
+          placeholder="Ratings"
+          #ratings="ngModel">
+
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+        type="number"
+          name="capacity"
+          [(ngModel)]="hap_capacity"
+       
+
+          placeholder="capacity"
+          #capacity="ngModel">
+
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+
+          name="image"
+          [(ngModel)]="hap_image"
+          required
+
+          placeholder="Img Url"
+          #image="ngModel">
+
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit">Update Room</button>
+    </form>
+  </mat-card>

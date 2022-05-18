@@ -2,16 +2,16 @@
 
 
   <div class="row">
-    <div class="col-8">
+    <div class="col-12 col-md-8">
       <div class="hotel">
       <h1 class="hotelName">{{hotel.name}}</h1>
       <p class="hotelAddress">{{hotel.address}}</p>
       </div>
       </div>
       <div class="col-4">
-<div class="ascotClass">
-  <h2 class="ascot">HappenCares :)</h2>
-  <p style="    font-family: Georgia, Times New Roman, Times, serif;margin-left: 8px;">Our Commitment to Wellness, Cleanliness and Sustainability</p>
+<div class="ascotClass d-none d-md-block ">
+  <h2 class="ascot text-center ">HappenCares :)</h2>
+  <p style="    font-family: Georgia, Times New Roman, Times, serif;margin-left: 8px; " class="text-center">Our Commitment to Wellness, Cleanliness and Sustainability</p>
 
 </div>
 
@@ -23,7 +23,7 @@
 
 
 <div class="row" *ngIf="rooms.length>0; else elseBlock">
-  <div class="col-3">
+  <div class="d-none d-md-block col-3">
     
     <div class="row">
       <div class="col-12 mt-2 ms-3 shadow-sm p-3 mb-2 bg-body rounded">
@@ -93,8 +93,44 @@
           </div>
         </div>
       </div>
+      <div class="col-12  ms-3 shadow-sm p-3 mb-2 bg-body rounded">
+        <div class="d-flex">
+          <div class="logo">
+            <img src="assets/images/sanitizer.svg" alt="logo" />
+          </div>
+          <div class="info ms-4">
+            <h3>Preventative Equipment</h3>
+            <ul class="list-unstyled">
+              <li><i class="fa-solid fa-check me-2"></i> Hand sanitizer</li>
+              <li><i class="fa-solid fa-check me-2"></i>Free face masks</li>
+              <li>
+                <i class="fa-solid fa-check me-2"></i>Sterilizing equipment
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 ms-3 shadow-sm p-3 mb-2 bg-body rounded">
+        <div class="d-flex">
+          <div class="logo">
+            <img src="assets/images/safety.svg" alt="logo" />
+          </div>
+          <div class="info ms-4">
+            <h3>Safety Features</h3>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fa-solid fa-check me-2"></i>Staff trained in safety
+                protocol
+              </li>
+              <li><i class="fa-solid fa-check me-2"></i>Temperature check</li>
+              <li><i class="fa-solid fa-check me-2"></i>Daily disinfection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  
   <div class="col-md-9 ">
     <div class="row">
       <div class="col-12" *ngFor="let room of rooms; let i = index">
@@ -237,7 +273,7 @@
 </div>
 <ng-template #elseBlock>
   <div class="alreadyBooked" >
-    <h1>Sorry, All Rooms are already booked in {{hotel.name}} from {{fromDate}} to {{toDate}}. </h1>  
+    <h1>Sorry, No Rooms Available </h1>  
 </div>
 
 

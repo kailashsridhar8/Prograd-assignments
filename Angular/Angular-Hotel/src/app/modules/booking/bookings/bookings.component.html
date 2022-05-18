@@ -1,6 +1,7 @@
-
-
-<div class="container" >
+<div class="yourBookings">
+  <h1>Your Bookings</h1>
+</div>
+<div class="container" *ngIf="bookings.length>0; else elseBlock" >
 
     <div class="card-deck row">
     
@@ -61,3 +62,11 @@
   
       
     </div>
+
+    <ng-template #elseBlock>
+      <div class="alreadyBooked" >
+        <h1>No bookings so far!</h1>  
+    </div>
+    
+    
+    </ng-template>

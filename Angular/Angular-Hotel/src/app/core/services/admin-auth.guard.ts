@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AdminAuthGuard implements CanActivate {
 
   constructor(
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,private notificationService: NotificationService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -20,6 +21,7 @@ export class AdminAuthGuard implements CanActivate {
         return true;
       }
       else{
+        this.notificationService.showError("UnAuthorized","");
         this.router.navigate(['/']);
       }
     

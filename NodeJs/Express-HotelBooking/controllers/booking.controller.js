@@ -8,10 +8,20 @@ exports.findBookingDetailsbyUserId = function (req, res) {
       .then((result) => {
         res.json(result);
         // console.log("Booking"+result)
-        console.log("Booking"+req.body.user_id)
+        // console.log("Booking"+req.body.user_id)
       })
       .catch((err) => {
         res.send(err);
       });
   };
   
+
+  exports.getAllBookings= function (req, res) {
+
+    bookingModel.find().then((result)=>{
+      res.send(result);
+    }).catch((err)=>{
+      res.send(err);
+    })
+
+  }

@@ -169,7 +169,7 @@ router.post(
 
 
   function generateAccessToken(body){
-    return jwt.sign({ user: body }, process.env.TOP_SECRET,{ expiresIn: '30m' })
+    return jwt.sign({ user: body }, process.env.TOP_SECRET,{ expiresIn: '30s' })
   }
 
 
