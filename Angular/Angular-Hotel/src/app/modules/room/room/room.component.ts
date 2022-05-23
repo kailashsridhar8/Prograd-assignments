@@ -110,7 +110,7 @@ this.activatedRoute.queryParams.subscribe(params => {
      
             if(this.flag==0||data.bookings.length==0){
               this.rooms.push(data);
-
+             
             }
            
 
@@ -120,15 +120,17 @@ this.activatedRoute.queryParams.subscribe(params => {
               console.log(data);
             }
           })
+         
         }
+       
 
-
-
+   
 
       },
       error:(err)=>{
         console.log(err);
       }
+      
     }
 
       

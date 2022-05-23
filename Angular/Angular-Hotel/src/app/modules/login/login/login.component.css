@@ -70,3 +70,83 @@ mat-card-title {
   top:-18px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
+
+.quote{
+  margin-top:180px;
+  font-size: 68px;
+
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color:rgb(118, 113, 113);
+  padding: 15px;
+}
+.quote2 h1{
+  margin-top:30px;
+  margin-left: 20px;
+  font-size: 72px;
+ 
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color:black;
+  padding: 15px;
+}
+.quote2 h4{
+  margin-top:20px;
+  margin-left: 100px;
+  font-size: 22px;
+ 
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color:black;
+  padding: 15px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+ 
+
+  .class1 {
+    width: 350px;
+    height: 380px;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .quote{
+    margin-top: 20px;
+    display:table;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 40px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color:rgb(118, 113, 113);
+    padding: 5px;
+  }
+  .quote2 h1{
+  
+ 
+    font-size: 35px;
+    display:table;
+    margin-left: auto;
+    margin-right: auto;
+  
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color:black;
+    padding: 5px;
+  }
+  .quote2 h4{
+
+   display:none;
+  }
+
+
+
+
+
+  
+}

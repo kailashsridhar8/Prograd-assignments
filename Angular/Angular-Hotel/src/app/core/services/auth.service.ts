@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import {globalVars} from '../../shared/urls.model';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   isLoggedIn!:string
   
-  url:string='http://127.0.0.1:8000/user'
+  url:string=`${globalVars.backendAPI}/user`;
   constructor(private http: HttpClient) { 
 
     this.isLoggedIn=localStorage.getItem("Login_Status")||"no"
@@ -40,10 +40,11 @@ export class AuthService {
   
 
   loginUser(email:string,password:string){
-    return this.http.post("http://127.0.0.1:8000/user/login",{email:email,password:password});
+    // console.log(globalVars.backendAPI+"/user/login","http://3.108.217.116:8000/user/login");
+    return this.http.post(globalVars.backendAPI+"/user/login",{email:email,password:password});
   }
-  signUpUser(username:string,email:string,password:string){
-    return this.http.post("http://127.0.0.1:8000/user/signup",{username:username,email:email,password:password});
+  signUpUser(username:string,email:string,password:string,phone: string){
+    return this.http.post(globalVars.backendAPI+"/user/signup",{username:username,email:email,password:password,phone:phone});
   }
 
  

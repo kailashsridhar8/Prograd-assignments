@@ -79,6 +79,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
   
+
+    
+    if (this.loginForm.invalid) {
+      return;
+    }
     
     this.authService.loginUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value).subscribe(
 
@@ -125,13 +130,15 @@ export class LoginComponent implements OnInit {
        
         
         }
-        // ,
-        // error:(error)=>{
-        //   console.log("Error"+error);
-        //   this.message = JSON.parse(JSON.stringify(error)).error; 
-        //   this.notifyService.showError(this.message,"");
+
+        
+      //   ,
+      //  error:(error)=>{
+      //      console.log("Error"+error);
+      //     this.message = JSON.parse(JSON.stringify(error)).error; 
+      //    this.notifyService.showError(this.message,"");
      
-        // }
+      //   }
 
       
 //       (response:any)=>{
@@ -171,7 +178,7 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email,Validators.pattern(
         '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,63}$')]),
       password: new FormControl('', [Validators.required,Validators.pattern(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,30}$'
       )]),
     
 

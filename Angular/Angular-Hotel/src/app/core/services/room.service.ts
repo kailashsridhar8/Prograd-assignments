@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-
+import {globalVars} from '../../shared/urls.model'
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +22,11 @@ export class RoomService {
 
   getRoomsByHotel(id:any):Observable<any>{
 
-    return this.http.post("http://127.0.0.1:8000/hotel/getRoomsByHotel",{id:id ,responseType: 'text'});
+    return this.http.post(globalVars.backendAPI+"/hotel/getRoomsByHotel",{id:id ,responseType: 'text'});
   }
 
   getRoomDetailsById(id:any):Observable<any>{
-    return this.http.post("http://127.0.0.1:8000/hotel/getRoomDetailsById",{id:id});
+    return this.http.post(globalVars.backendAPI+"/hotel/getRoomDetailsById",{id:id});
   }
 
   // getHotelsByCity(city: string,noOfDays: Number){
@@ -34,11 +34,11 @@ export class RoomService {
   //   return this.http.post("http://127.0.0.1:8000/hotel/getHotelsByCity",{city:city,noOfDays:noOfDays});
   // }
   bookRoom(room_id:string,room_type:string,hotel_name:string,fromDate:any,toDate:any,price:number,user_id:string):Observable<any>{
-    return this.http.post("http://127.0.0.1:8000/user/bookRoom",{room_id:room_id,room_type:room_type,hotel_name:hotel_name,fromDate:fromDate,toDate:toDate,price:price,user_id:user_id })
+    return this.http.post(globalVars.backendAPI+"/user/bookRoom",{room_id:room_id,room_type:room_type,hotel_name:hotel_name,fromDate:fromDate,toDate:toDate,price:price,user_id:user_id })
   }
 
    addBookingToRoom(room_id:string,bookings:object){
-    return this.http.post("http://127.0.0.1:8000/user/addBookingToRoom",{room_id:room_id,bookings:bookings })
+    return this.http.post(globalVars.backendAPI+"/user/addBookingToRoom",{room_id:room_id,bookings:bookings })
    }
 
 

@@ -26,14 +26,15 @@ export class SignupComponent implements OnInit {
   
   onSubmit() {
   
-    // if (this.signupForm.invalid) {
-    //   return;
-    // }
+    if (this.signupForm.invalid) {
+      this.notifyService.showWarning("Enter Valid Details","")
+   
+      return;
+    }
 
 
-    console.log("Hello"+this.signupForm.controls['phone'].value);
 
-    this.userService.signUpUser(this.signupForm.controls['username'].value,this.signupForm.controls['email'].value, this.signupForm.controls['password'].value)
+    this.userService.signUpUser(this.signupForm.controls['username'].value,this.signupForm.controls['email'].value, this.signupForm.controls['password'].value,this.signupForm.controls['phone'].value)
     .subscribe(
       
     //   {
@@ -130,9 +131,9 @@ export class SignupComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email,Validators.pattern(
         '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,63}$')]),
       password: new FormControl('', [Validators.required,Validators.pattern(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,30}$'
       )]),
-      confirmPassword:new FormControl('', [Validators.required])
+  
 
       
     

@@ -1,7 +1,9 @@
 
 
 
-  <div class="row">
+<div class="row">
+
+
     <div class="col-12 col-md-8">
       <div class="hotel">
       <h1 class="hotelName">{{hotel.name}}</h1>
@@ -11,13 +13,13 @@
       <div class="col-4">
 <div class="ascotClass d-none d-md-block ">
   <h2 class="ascot text-center ">HappenCares :)</h2>
-  <p style="    font-family: Georgia, Times New Roman, Times, serif;margin-left: 8px; " class="text-center">Our Commitment to Wellness, Cleanliness and Sustainability</p>
+  <p style="font-family: Georgia, Times New Roman, Times, serif; " class="text-center">Our Commitment to Wellness, Cleanliness and Sustainability</p>
 
 </div>
 
       </div>
-      </div>
-
+   
+</div>
 
 
 
@@ -93,7 +95,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12  ms-3 shadow-sm p-3 mb-2 bg-body rounded">
+      <!-- <div class="col-12  ms-3 shadow-sm p-3 mb-2 bg-body rounded">
         <div class="d-flex">
           <div class="logo">
             <img src="assets/images/sanitizer.svg" alt="logo" />
@@ -109,8 +111,8 @@
             </ul>
           </div>
         </div>
-      </div>
-      <div class="col-12 ms-3 shadow-sm p-3 mb-2 bg-body rounded">
+      </div> -->
+      <!-- <div class="col-12 ms-3 shadow-sm p-3 mb-2 bg-body rounded">
         <div class="d-flex">
           <div class="logo">
             <img src="assets/images/safety.svg" alt="logo" />
@@ -127,16 +129,14 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   
-  <div class="col-md-9 ">
-    <div class="row">
-      <div class="col-12" *ngFor="let room of rooms; let i = index">
-        <!-- <a [routerLink]="['/room/'+hotels[i]._id]"> -->
-
-        <!-- <mat-grid-tile > -->
+  <div class="col-12 col-md-9">
+    <!-- <div class="row"> -->
+      <div  *ngFor="let room of rooms; let i = index">
+     
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title
@@ -158,9 +158,9 @@
                 alt="roomImage"
               />
             </div>
-            <div class="col-3">
+            <div class="d-none d-md-block col-3">
               <div class="row">
-                <div class="amenities">
+                <div class="amenities d-none d-md-block ">
                   <h3 class="includes">Your price includes:</h3>
                   <ul class="list-unstyled">
                     <li>
@@ -197,27 +197,50 @@
                 </h3>
               </div>
             </div>
-            <div class="col-4">
-              <span class="welcomeSpan">
+            <div class="col-md-4 col-7">
+              <span class="welcomeSpan ">
                 Well done! You're getting this property's lowest price!</span
               >
               <br />
               <br />
 
               <div class="price">
-                Original Price (1 room x {{noOfDays}} nights)
+
+                <div class="d-flex justify-content-between" >
+                  Actual Price  <span class="actuprice">(1 room x {{noOfDays}} nights)</span> 
+
+
                 <span class="strikethrough">{{(noOfDays*rooms[i].price)+2500}}</span> <br />
-                Room Price (1 room x {{noOfDays}} nights)
-                <span class="roomPrice"> {{ noOfDays*rooms[i].price }}</span> Booking
-                fees <span class="bookingFee">FREE</span>
+              
+              </div>
+              <div class="d-flex justify-content-between">
+              
+              
+                Offer Price <span class="actuprice">    (1 room x {{noOfDays}} nights)</span>
+             
+             
+             
+                <span class="me-3" style="font-size: 20px;"> {{ noOfDays*rooms[i].price }}</span>
+
+              </div>
+
+                <div class="d-flex justify-content-between">
+                  <span> Booking fees</span>
+                  <span class="me-4" style="color:green">FREE</span>
+              </div> 
                 <hr />
 
-                Price<span class="actualPrice">{{ noOfDays*rooms[i].price }}</span>
+                <div class="d-flex justify-content-between">
+                  <span> Price</span>
+                  <span class="me-3"  style="font-size: 20px;">{{ noOfDays*rooms[i].price }}</span>
+              </div> 
+
+
+            <!-- Price<span class="actualPrice ">{{ noOfDays*rooms[i].price }}</span>  -->
               </div>
               <mat-card-actions>
 
-               
-                <!-- [routerLink]="['/bookings']" [queryParams]="{hotel_id: hotel._id,fromDate: fromDate, toDate: toDate}" -->
+        
                 <button   (click)="onClick(rooms[i]._id,rooms[i].roomtype,noOfDays*rooms[i].price)"
                 class="viewButton"
                 mat-button
@@ -228,47 +251,17 @@
                 Book Now
               </button>
 
-                <!-- <button *ngIf="isLoggedIn; else elseBlock"
-                  class="viewButton"
-                  mat-button
-                  style="
-                    background-color: rgb(0, 0, 0);
-                    color: white;
-                    font-family: Georgia, Times New Roman, Times, serif;">
-                  Book Now
-                </button> -->
 
 
-                <!-- <ng-template #elseBlock>
-  
-                 
-                <button (click)="openDialog()"
-                class="viewButton"
-                mat-button
-                style="
-                  background-color: rgb(212, 30, 30);
-                  color: white;
-                  font-family: Georgia, Times New Roman, Times, serif;">
-                Login and Book Now
-              </button>
-                
-                
-                </ng-template> -->
               </mat-card-actions>
             </div>
           </div>
 
-          <!--                 
-                  <mat-card-content>
-                    <p style="font-family: Georgia, Times New Roman, Times, serif;font-weight: 300;">
-                      {{rooms[i].address}}
-                    </p>
-                  </mat-card-content> -->
-        </mat-card>
-        <!-- </mat-grid-tile> -->
-        <!-- </a> -->
+  
+        </mat-card> 
+
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </div>
 <ng-template #elseBlock>
@@ -280,24 +273,3 @@
 </ng-template>
 
 
-<!-- <mat-grid-list cols="1"  rowHeight="190px"  > -->
-
-<!-- </mat-grid-list>  -->
-
-<!-- <mat-card class="example-card">
-
-
-    <mat-card-header >
-        <mat-card-title style="font-family: Georgia, Times New Roman, Times, serif;">{{rooms[i].roomType}}</mat-card-title>
-      </mat-card-header>
-  </mat-card> -->
-
-<!-- 
-  <div class="row">
-      <div class="col-6">
-1
-      </div>
-      <div class="col-6">
-2
-      </div>
-  </div> -->
