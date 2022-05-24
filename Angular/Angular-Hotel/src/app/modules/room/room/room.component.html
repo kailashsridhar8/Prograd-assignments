@@ -198,7 +198,7 @@
               </div>
             </div>
             <div class="col-md-4 col-7">
-              <span class="welcomeSpan ">
+              <span class="welcomeSpan d-none md-block ">
                 Well done! You're getting this property's lowest price!</span
               >
               <br />
@@ -206,33 +206,35 @@
 
               <div class="price">
 
-                <div class="d-flex justify-content-between" >
-                  Actual Price  <span class="actuprice">(1 room x {{noOfDays}} nights)</span> 
+                <div class="d-flex  justify-content-between" >
+                 <span>Actual Price</span>  
+                  <span class="actuprice">(1 room x {{noOfDays}} nights)</span> 
 
 
-                <span class="strikethrough">{{(noOfDays*rooms[i].price)+2500}}</span> <br />
+                <span class="strikethrough me-1" > <s>{{(noOfDays*rooms[i].price)+2500}}</s></span> 
               
               </div>
               <div class="d-flex justify-content-between">
               
               
-                Offer Price <span class="actuprice">    (1 room x {{noOfDays}} nights)</span>
+               <span> Offer Price</span>
+                <span class="actuprice ">    (1 room x {{noOfDays}} nights)</span>
              
              
              
-                <span class="me-3" style="font-size: 20px;"> {{ noOfDays*rooms[i].price }}</span>
+                <span class="me-1" style="font-size: 20px;"> {{ noOfDays*rooms[i].price }}</span>
 
               </div>
 
                 <div class="d-flex justify-content-between">
                   <span> Booking fees</span>
-                  <span class="me-4" style="color:green">FREE</span>
+                  <span class="me-1" style="color:green">FREE</span>
               </div> 
                 <hr />
 
                 <div class="d-flex justify-content-between">
                   <span> Price</span>
-                  <span class="me-3"  style="font-size: 20px;">{{ noOfDays*rooms[i].price }}</span>
+                  <span class="me-1"   style="font-size: 20px;">{{ noOfDays*rooms[i].price }}</span>
               </div> 
 
 

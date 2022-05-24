@@ -32,13 +32,17 @@
                 </div>
                 <div class="col-6">
                   <ul class="list-unstyled">
-                    <li>Check-In Date : <span>{{(bookings[i].fromDate).slice(0,10)}}</span></li>
-                    <li>Check-Out Date :<span>{{(bookings[i].toDate).slice(0,10)}}</span></li>
+                    <li>Check-In Date : <span>{{ (bookings[i].fromDate).slice(0,15)}}</span></li>
+                    <li>Check-Out Date : <span>{{ (bookings[i].toDate).slice(0,15)}}</span></li>
                     <li>Amount Paid : <span>{{bookings[i].price}}</span></li>
                     <li>Payment Type : <span>Card</span></li>
                   </ul>
-                </div>
-              
+          
+                </div> 
+                <button 
+                mat-raised-button
+                color="accent"
+                type="submit" class="cancelButton" (click)="cancelBooking(bookings[i])">Cancel Booking</button>
               </div>
     
         </div>

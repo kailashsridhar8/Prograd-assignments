@@ -48,9 +48,9 @@
   .strikethrough {
     position: relative;
     font-size: 20px;
-    margin-left:20px;
+    margin-left:2px;
   }
-  .strikethrough:before {
+  /* .strikethrough:before {
     position: absolute;
     content: "";
     left: 0;
@@ -64,7 +64,7 @@
     -ms-transform:rotate(-5deg);
     -o-transform:rotate(-5deg);
     transform:rotate(-5deg);
-  }
+  } */
 
   .roomPrice{
     font-size: 20px;
@@ -81,10 +81,7 @@
  
    
   } */
-  .welcomeSpan{
-    position:relative;
-    
-  }
+  
   .hotelName{
     margin-left:40px;
     margin-top: 10px;
@@ -132,7 +129,7 @@
 
     .example-card{
       width:96% ;
-
+      height: 330px;
       margin-left: 8px;
       margin-right: 8px;
       background-size: cover;
@@ -164,15 +161,13 @@
    
     }
     
-   .welcomeSpan{
-     display: none;
-   }
+ 
    .price{
     margin-left:40px;
     font-size:13px;
    }
 
-   .strikethrough {
+   /* .strikethrough {
     position: relative;
     font-size: 20px;
     margin-left:25px;
@@ -193,7 +188,7 @@
     transform:rotate(-5deg);
 
 
-  }
+  } */
 
   .roomPrice{
     font-size: 13px;
@@ -219,10 +214,6 @@
   }
 
 
-  .actuprice{
-    display:none;
-  }
-
   .viewButton{
     display: flex;
     float: right; 
@@ -231,6 +222,12 @@
     right:50px;
     font-family: Georgia, "Times New Roman", Times, serif;
   }
+
+
+  }
+
+
+  @media only screen and (min-width: 1200px) {
 
 
   }

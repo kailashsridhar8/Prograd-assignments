@@ -1,6 +1,8 @@
 var bcrypt = require("bcryptjs");
 const userModel = require("../models/user.model");
+const bookingModel=require("../models/booking.model");
 const passport = require("passport");
+const roomModel = require("../models/room.model");
 const localStrategy = require("passport-local").Strategy;
 const JWTstrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
@@ -56,3 +58,32 @@ passport.use(
     }
   )
 );
+
+
+exports.cancelBooking=function(req,res){ 
+
+  bookingModel.deleteOne({ user_id: req.body.user_id, fromDate:req.body.fromDate,toDate:req.body.toDate }, function (err, data) {
+    if (err) {
+      return res.send(err);
+    } else {
+      console.log(data);
+      return res.send(data);
+    }
+  });
+
+
+
+  roomModel.findByIdAndUpdate(req.body.room_id,{
+
+    $pull:{
+      bookings:{
+        fromDate:req.body.fromDate,
+        toDate:req.body.toDate,
+        user_id:req.body.user_id
+
+      }
+    }
+  })
+
+
+}

@@ -16,5 +16,8 @@ export class BookingService {
    getAllBookings(){
      return this.http.get(globalVars.backendAPI+"/admin/getAllBookings");
    } 
+   cancelBooking(fromDate:any, toDate:any,user_id:any,room_id:any){
+      return this.http.post(globalVars.backendAPI+"/user/cancelBooking",{fromDate:fromDate,toDate:toDate,user_id:user_id,room_id:room_id });
+   }
 
 }

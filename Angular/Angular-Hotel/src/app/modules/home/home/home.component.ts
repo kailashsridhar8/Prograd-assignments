@@ -22,18 +22,27 @@ export class HomeComponent implements OnInit {
   filteredOptions!: Observable<string[]>;
   noOfDays!: Number;
   hotels: any = [];
-
+  minDate = new Date();
   onSubmit() {
 
-    if (this.searchForm.invalid) {
+    if (this.searchForm.invalid||!this.myControl.value) {
       return;
     }
+    
 
 const city=this.myControl.value;
 
 
+
 this.fromDate=this.searchForm.controls['fromDate'].value;
 this.toDate=this.searchForm.controls['toDate'].value;
+
+console.log("A"+this.fromDate);
+console.log("B"+this.toDate);
+
+localStorage.setItem('fromDatel',this.fromDate);
+localStorage.setItem("toDatel",this.toDate);
+
     const from = this.searchForm.controls['fromDate'].value.getTime();
 
     const to = this.searchForm.controls['toDate'].value.getTime();
@@ -44,9 +53,10 @@ this.toDate=this.searchForm.controls['toDate'].value;
     this.noOfDays=days;
     var event = new Date(this.searchForm.controls['fromDate'].value);
     let date = JSON.stringify(event);
+    console.log("date"+event);
     date = date.slice(1, 11);
 
-    console.log('from' + new Date(date));
+    // console.log('from' + new Date(date));
     this.hotelService.getHotelsByCity(city, days).subscribe({
       next: (data) => {
         console.log(data);

@@ -26,7 +26,7 @@ export class RoomComponent implements OnInit {
   toDate:any;
   id:any;
   index:number = 0;
-
+  paymentHandler:any;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id=params['id'];
@@ -37,11 +37,21 @@ export class RoomComponent implements OnInit {
 
     });
 
-this.activatedRoute.queryParams.subscribe(params => {
-        this.fromDate=params['fromDate'];
-        this.toDate=params['toDate'];
+    this.fromDate=localStorage.getItem('fromDatel');
+    this.toDate=localStorage.getItem('toDatel');
+    this.invokeStripe();
+
+       this.activatedRoute.queryParams.subscribe(params => {
+        // this.fromDate=params['fromDate'];
+        // console.log("From "+this.fromDate);
+     
+        // this.toDate=params['toDate'];
+
+        // console.log("To"+this.toDate);
+
+
         this.noOfDays=params['noOfDays'];
-        console.log("noddd"+this.fromDate)
+    
         if(this.noOfDays==null){
           this.noOfDays=1;
         }
@@ -57,7 +67,7 @@ this.activatedRoute.queryParams.subscribe(params => {
       next:(data) => {
         
         this.hotel= data;
-        console.log(this.hotel.name+"HotelName");
+     
       
       },
       error:(err) => {
@@ -80,7 +90,7 @@ this.activatedRoute.queryParams.subscribe(params => {
 
   
           this.flag=0;
-          console.log(roomId);
+      
         
           this.roomService.getRoomDetailsById(roomId).subscribe({
             next: (data)=>{
@@ -148,32 +158,114 @@ this.activatedRoute.queryParams.subscribe(params => {
 
     }
 
+
+    
     var user_id=localStorage.getItem('user_id');
+    console.log("ls from"+localStorage.getItem('fromDatel'));
+    console.log("ls to "+localStorage.getItem('toDatel'));
 
-         this.roomService.bookRoom(room_id,room_type,this.hotel.name,this.fromDate,this.toDate,totalPrice,user_id).subscribe({
-           next: function(data:any){
-              console.log("Booking Data"+data);
-           },
-           error: function(err){
-             console.log("Booking Data"+err);
-           }
-         });
+    this.roomService.bookRoom(room_id,room_type,this.hotel.name,localStorage.getItem('fromDatel'),localStorage.getItem('toDatel'),totalPrice,user_id).subscribe({
+    
+      
+      next: function(data:any){
+         console.log("Booking Data"+data);
+      },
+      error: function(err){
+        console.log("Booking Data"+err);
+      }
+    });
 
-        var bookings={
-            fromDate:this.fromDate,
-            toDate:this.toDate,
-            user_id:localStorage.getItem('user_id'),
-         }
-         this.roomService.addBookingToRoom(room_id,bookings).subscribe({
-           next:(data:any)=>{
-             console.log("addBookingToRoom Data"+data);
-             this.notificationService.showInfo("Sucessfully Booked in "+this.hotel.name,room_type+ " for "+this.noOfDays+" days is" );
-              this.router.navigate(['/bookings']);
-           },
-           error: function(err:any){
-             console.log("addBookingToRoom Data"+err);
-           }
-         });
+   var bookings={
+       fromDate:localStorage.getItem('fromDatel'),
+       toDate:localStorage.getItem('toDatel'),
+       user_id:localStorage.getItem('user_id'),
+    }
+    console.log(bookings);
+    console.log("Bookings fromdate"+bookings.fromDate);
+    this.roomService.addBookingToRoom(room_id,bookings).subscribe({
+      next:(data:any)=>{
+        console.log("addBookingToRoom Data"+data);
+       
+       
+      },
+      error: function(err:any){
+        console.log("addBookingToRoom Data"+err);
+      }
+    });
+
+
+
+
+
+
+
+    this.paymentHandler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_51L2YAsSEGRPGWRFA6JEiSrrVdcP1F9hAdoSfaDMDoUEf8bnpMojBdI7q1DZTvTMeZhEGbiZtYZ9kacgCDo380jcf00urPLt6fM',
+
+     locale: 'auto',
+      token: function (stripeToken: any) {
+        console.log({stripeToken})
+        callMe();
+      }
+   
+    });
+  
+
+
+    const callMe= ()=>{
+    
+      this.notificationService.showInfo("Sucessfully Booked in "+this.hotel.name,room_type+ " for "+this.noOfDays+" days is" );
+      this.router.navigate(['/bookings']);
+  
+  
+  
+  
+    }
+
+
+
+
+    this.paymentHandler.open({
+      name: 'Happen.Inn',
+      description: room_type,
+      currency:'inr',
+      amount: totalPrice * 100
+    });
+
+
+
+
+    // var user_id=localStorage.getItem('user_id');
+
+    //      this.roomService.bookRoom(room_id,room_type,this.hotel.name,this.fromDate,this.toDate,totalPrice,user_id).subscribe({
+    //        next: function(data:any){
+    //           console.log("Booking Data"+data);
+    //        },
+    //        error: function(err){
+    //          console.log("Booking Data"+err);
+    //        }
+    //      });
+
+    //     var bookings={
+    //         fromDate:this.fromDate,
+    //         toDate:this.toDate,
+    //         user_id:localStorage.getItem('user_id'),
+    //      }
+    //      this.roomService.addBookingToRoom(room_id,bookings).subscribe({
+    //        next:(data:any)=>{
+    //          console.log("addBookingToRoom Data"+data);
+    //         //  this.notificationService.showInfo("Sucessfully Booked in "+this.hotel.name,room_type+ " for "+this.noOfDays+" days is" );
+    //         //  this.router.navigate(['/bookings']);
+            
+    //        },
+    //        error: function(err:any){
+    //          console.log("addBookingToRoom Data"+err);
+    //        }
+    //      });
+
+
+      
+
 
         //  const dialogRef = this.dialog.open(DialoguebookingComponent);
 
@@ -184,7 +276,25 @@ this.activatedRoute.queryParams.subscribe(params => {
 
   }
 
-
+  invokeStripe() {
+    if(!window.document.getElementById('stripe-script')) {
+      const script = window.document.createElement("script");
+      script.id = "stripe-script";
+      script.type = "text/javascript";
+      script.src = "https://checkout.stripe.com/checkout.js";
+      script.onload = () => {
+        this.paymentHandler = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_sLUqHXtqXOkwSdPosC8ZikQ800snMatYMb',
+          locale: 'auto',
+          token: function (stripeToken: any) {
+            console.log(stripeToken)
+            alert('Payment has been successfull!');
+          }
+        });
+      }
+      window.document.body.appendChild(script);
+    }
+  }
 
 
   dateRangeOverlaps(a_start:any, a_end:any, b_start:any, b_end:any) {
@@ -193,6 +303,9 @@ this.activatedRoute.queryParams.subscribe(params => {
     if (b_start <  a_start && a_end   <  b_end) return true; // a in b
     return false;
 }
+
+
+
 
 
 

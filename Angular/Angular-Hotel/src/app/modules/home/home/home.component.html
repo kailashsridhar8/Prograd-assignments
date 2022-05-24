@@ -68,9 +68,9 @@ z
 
       <mat-form-field appearance="outline" class="date-field">
           <mat-label>Enter a date range of stay</mat-label>
-          <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Check-in" required formControlName="fromDate">
-            <input matEndDate placeholder="Check-out" required formControlName="toDate">
+          <mat-date-range-input  [min]="minDate" [rangePicker]="picker">
+            <input matStartDate  placeholder="Check-in" required formControlName="fromDate">
+            <input matEndDate   placeholder="Check-out" required formControlName="toDate">
         
           </mat-date-range-input >
           <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->

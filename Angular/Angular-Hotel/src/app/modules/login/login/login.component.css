@@ -2,9 +2,10 @@
   width: 350px;
   height: 380px;
   display: block;
-  margin-top: 70px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 .grid-title1 {
   padding-left: 0px;
@@ -103,7 +104,14 @@ mat-card-title {
 }
 
 
-@media only screen and (max-width: 600px) {
+.leftContent{
+  max-width: 100%;
+  
+}
+
+
+
+@media only screen and (max-width: 768px) {
 
  
 
@@ -112,6 +120,7 @@ mat-card-title {
     height: 380px;
     display: block;
     margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
   }
