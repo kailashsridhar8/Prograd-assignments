@@ -58,12 +58,16 @@ export class BookingsComponent implements OnInit {
 
           next: (data)=>{
             console.log(data);
+           
           },
           error: (err)=>{
             console.log(err);
           }
 
-        })
+        });
+
+        this.notificationService.showSuccess("Cancelled Sucessfully","");
+        window.location.reload();
 
 
 
