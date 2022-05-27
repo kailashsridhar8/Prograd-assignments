@@ -7,7 +7,7 @@
        Happen Money Now!</p>
       <div class="container">
         <mat-card-title class="loginTitle"> Register/Signup</mat-card-title>
-        <mat-card-subtitle class="subTitle"><a class="atag" href="/login">Already have an account? Sign in</a></mat-card-subtitle>
+        <mat-card-subtitle class="subTitle"><a class="atag" href="/">Already have an account? Sign in</a></mat-card-subtitle>
         <form
           [formGroup]="signupForm"
           (ngSubmit)="onSubmit()"
@@ -24,7 +24,7 @@
                 required
               />
               <mat-error *ngIf="!signupForm.get('username')?.errors?.required&& (signupForm.get('username')?.errors?.minlength)"> 
-                  Password length must be greater than 6
+                  Username length must be greater than 6
 
                 </mat-error>
            
@@ -118,7 +118,7 @@
               <mat-icon matSuffix (click)="hidden = !hidden">{{
                 hidden ? "visibility_off" : "visibility"
               }}</mat-icon>
-              <mat-hint>8 min characters, must contain one or more uppercase, lowercase, numeric and specialcharacters</mat-hint>
+              <mat-hint>8 min characters, must contain one or more uppercase, lowercase, numeric and special characters</mat-hint>
               <mat-error *ngIf="!signupForm.get('password')?.errors?.required">
                 Password length must be greater than or equal to 8 and password
                 must contain one or more uppercase , lowercase , numeric and

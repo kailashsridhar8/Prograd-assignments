@@ -43,6 +43,8 @@ console.log("B"+this.toDate);
 localStorage.setItem('fromDatel',this.fromDate);
 localStorage.setItem("toDatel",this.toDate);
 
+
+
     const from = this.searchForm.controls['fromDate'].value.getTime();
 
     const to = this.searchForm.controls['toDate'].value.getTime();

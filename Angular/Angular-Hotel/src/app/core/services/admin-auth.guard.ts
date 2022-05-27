@@ -21,11 +21,21 @@ export class AdminAuthGuard implements CanActivate {
         return true;
       }
       else{
+        console.log("Here");
         this.notificationService.showError("UnAuthorized","");
-        this.router.navigate(['/']);
+        if(localStorage.getItem("Login_Status")==="user"){
+          this.router.navigate(['/home']);
+          return false;
+        }
+        else{
+          this.router.navigate(['/']);
+        }
+        
+
+   
       }
-    
-      return true;
+      return false;
+   
   }
   
 }

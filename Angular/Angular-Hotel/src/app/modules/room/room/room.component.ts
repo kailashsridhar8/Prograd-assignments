@@ -27,6 +27,8 @@ export class RoomComponent implements OnInit {
   id:any;
   index:number = 0;
   paymentHandler:any;
+  fDate:string;
+  tDate:String;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id=params['id'];
@@ -73,9 +75,11 @@ export class RoomComponent implements OnInit {
       error:(err) => {
         console.log("Error"+err);
       }
-  })
+  });
 
- 
+ this.fDate=((new Date(localStorage.getItem('fromDatel'))).toDateString());
+ this.tDate=((new Date(localStorage.getItem('toDatel'))).toDateString());
+
 
 
   }
@@ -103,7 +107,7 @@ export class RoomComponent implements OnInit {
             var bookedFrom=new Date(bookings.fromDate).getTime();
             var bookedTo=new Date(bookings.toDate).getTime();
            
-
+          
          
             if(this.dateRangeOverlaps(bookedFrom, bookedTo,new Date(this.fromDate).getTime(),new Date(this.toDate).getTime())){
               console.log(" overlapping!");
@@ -164,7 +168,7 @@ export class RoomComponent implements OnInit {
     console.log("ls from"+localStorage.getItem('fromDatel'));
     console.log("ls to "+localStorage.getItem('toDatel'));
 
-    this.roomService.bookRoom(room_id,room_type,this.hotel.name,localStorage.getItem('fromDatel'),localStorage.getItem('toDatel'),totalPrice,user_id).subscribe({
+    this.roomService.bookRoom(room_id,room_type,this.hotel.name,this.fDate,this.tDate,totalPrice,user_id).subscribe({
     
       
       next: function(data:any){
@@ -196,7 +200,7 @@ export class RoomComponent implements OnInit {
 
 
 
-
+//changeeeee above to normal
 
 
     this.paymentHandler = (<any>window).StripeCheckout.configure({

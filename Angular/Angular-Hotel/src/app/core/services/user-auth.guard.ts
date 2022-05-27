@@ -21,7 +21,14 @@ export class UserAuthGuard implements CanActivate {
       }
       else{
         this.notification.showError("UnAuthorized","");
-        this.router.navigate(['/home']);
+        if(localStorage.getItem("Login_Status")==="admin"){
+          this.router.navigate(['/admin']);
+          return false;
+        }
+        else{
+          this.router.navigate(['/']);
+          return false;
+        }
       }
     
 
